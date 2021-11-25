@@ -1,0 +1,8 @@
+<ul>
+  <li *ngFor="let item of myTasks | async; let i = index;">
+    <input type="checkbox" [checked]="item.completed" id="task_{{item.id}}" (change)="onChange(i)">
+    <label [ngClass]="{'completed': item.completed}" for="task_{{item.id}}">{{item.name}}</label>
+    <span>{{ item.day }}</span>
+  </li>
+</ul>
+
