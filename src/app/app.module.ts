@@ -4,10 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { StoreModule } from '@ngrx/store';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { environment } from '../environments/environment';
-
 @NgModule({
   declarations: [
     AppComponent
@@ -15,8 +11,8 @@ import { environment } from '../environments/environment';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({}, {}),
-    StoreDevtoolsModule.instrument({ maxAge: 100, logOnly: environment.production })
+    // StoreModule.forRoot({}, {}),
+    // StoreDevtoolsModule.instrument({ maxAge: 100, logOnly: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
