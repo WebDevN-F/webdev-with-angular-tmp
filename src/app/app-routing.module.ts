@@ -1,11 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AboutComponent } from './components/about/about.component';
-import { TasksComponent } from './components/tasks/tasks.component';
 
 const routes: Routes = [
-  { path: '', component: TasksComponent,  },
-  { path: 'about', component: AboutComponent },
+  { path: '', loadChildren: () => import('./todo-app/todo-app.module').then(m => m.TodoAppModule).catch(() => console.log('TodoAppModule not found')) },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
