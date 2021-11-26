@@ -5,6 +5,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
 import { NgrxQuickAppComponent } from './ngrx-quick-app.component';
 import { RouterModule, Routes } from '@angular/router';
+import { ButtonXComponent } from './components/button-x/button-x.component';
 
 const routes: Routes = [
   {
@@ -14,7 +15,8 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    NgrxQuickAppComponent
+    NgrxQuickAppComponent,
+    ButtonXComponent
   ],
   imports: [
     CommonModule,

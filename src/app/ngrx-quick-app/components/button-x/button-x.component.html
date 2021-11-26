@@ -1,0 +1,8 @@
+<button
+  type="button"
+  class="btn"
+  [ngClass]="{ 'btn-block': btnBlock }"
+  [ngStyle]="{ 'background-color': bgcolor, 'color': color }"
+  (click)="onClickBtn($event)">
+  {{ buttonText }}
+</button>
