@@ -11,3 +11,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Demo
 
 [webdevn-f.github.io/webdev-with-angular-tmp/](https://webdevn-f.github.io/webdev-with-angular-tmp/)
+
+## References
+
+1. [Angular - Shortcut to Importing Styles Files in Components](https://www.digitalocean.com/community/tutorials/angular-shortcut-to-importing-styles-files-in-components)

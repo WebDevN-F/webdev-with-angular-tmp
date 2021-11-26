@@ -36,7 +36,12 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "./stylings"
+              ]
+            }
           },
           "configurations": {
             "production": {
@@ -104,7 +109,12 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "./stylings"
+              ]
+            }
           }
         },
         "deploy": {
