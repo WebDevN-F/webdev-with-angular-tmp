@@ -37,7 +37,7 @@ export function searchTreeNodePrev(trees: any[], nodeId?: number): any | undefin
   let stack = JSON.parse(JSON.stringify(trees));
   while (stack.length > 0) {
     let node = stack.pop();
-    if (node && node.id == nodeId) {
+    if (node && node['id'] == nodeId) {
       // Found it!
       return node;
     } else if (node && node.childs && node.childs.length > 0) {

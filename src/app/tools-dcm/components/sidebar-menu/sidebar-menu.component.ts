@@ -1,10 +1,23 @@
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { SidenavMenuModel } from '../../models/sidenav-menu';
 
 @Component({
   selector: 'app-sidebar-menu',
   templateUrl: './sidebar-menu.component.html',
-  styleUrls: ['./sidebar-menu.component.scss']
+  styleUrls: ['./sidebar-menu.component.scss'],
+  animations: [
+    trigger('flyInOut', [
+      state('in', style({ transform: 'translateX(0)' })),
+      transition('void => *', [
+        style({ transform: 'translateX(100%)' }),
+        animate(400)
+      ]),
+      transition('* => void', [
+        animate(400, style({ transform: 'translateX(-100%)' }))
+      ])
+    ])
+  ]
 })
 export class SidebarMenuComponent implements OnInit {
   @Input() menuItems: SidenavMenuModel[] = [];

@@ -27,6 +27,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { SidebarMenuComponent } from './components/sidebar-menu/sidebar-menu.component';
 import { ToolsDcmRoutingModule } from './tools-dcm-routing.module';
@@ -53,6 +54,7 @@ const icons = [
     MatIconModule,
     MatButtonModule,
     MatListModule,
+    MatTooltipModule,
     FontAwesomeModule
   ],
 })

@@ -1,4 +1,4 @@
-<mat-sidenav-container class="wrapper-container">
+<mat-sidenav-container class="wrapper-container" autosize>
   <mat-sidenav #sidenav mode="side" [(opened)]="opened">
     <mat-toolbar class="nav-header app-toolbar" role="heading" color="sidenav">
     </mat-toolbar>
@@ -20,8 +20,20 @@
       <button mat-icon-button class="example-icon" aria-label="icon-button with menu icon" (click)="sidenav.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
-      <span>#Page header title</span>
+      <span># {{ pageTitle }} </span>
       <span class="margin-spacer"></span>
+
+      <button mat-icon-button class="example-icon favorite-icon" aria-label="icon-button with heart icon"
+        matTooltip="nguyenvannam0411@gmail.com"
+        [matTooltipPosition]="'below'">
+        <a href="mailto:nguyenvannam0411@gmail.com"><fa-icon [icon]="faEnvelope"></fa-icon></a>
+      </button>
+      <button mat-icon-button class="example-icon favorite-icon" aria-label="icon-button with heart icon"
+        matTooltip="0928.351.036"
+        [matTooltipPosition]="'below'">
+        <a href="tel:0928351036"><fa-icon [icon]="faMobileAlt"></fa-icon></a>
+      </button>
+
       <button mat-icon-button class="example-icon favorite-icon" aria-label="icon-button with heart icon">
         <fa-icon [icon]="faSearch"></fa-icon>
       </button>

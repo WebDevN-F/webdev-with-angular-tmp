@@ -4,8 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   { path: '', loadChildren: () => import('./todo-app/todo-app.module').then(m => m.TodoAppModule).catch(() => console.log('TodoAppModule not found')) },
   { path: 'ngrx-quick', loadChildren: () => import('./ngrx-quick-app/ngrx-quick-app.module').then(m => m.NgrxQuickAppModule).catch(() => console.log('NgrxQuickAppModule not found')) },
-  { path: 'dcm', loadChildren: () => import('./tools-dcm/tools-dcm.module').then(m => m.ToolsDcmModule).catch(() => console.log('DcmAppModule not found')) },
-  { path: '**', redirectTo: '', pathMatch: 'full' }
+  { path: 'tools-dcm', loadChildren: () => import('./tools-dcm/tools-dcm.module').then(m => m.ToolsDcmModule).catch(() => console.log('DcmAppModule not found')) },
+  { path: '**', redirectTo: 'tools-dcm/document', pathMatch: 'full' }
 ];
 
 @NgModule({

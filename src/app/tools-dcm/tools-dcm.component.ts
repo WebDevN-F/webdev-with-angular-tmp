@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { faUser, faSearch, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import { IconPrefix, IconName } from '@fortawesome/fontawesome-svg-core';
+import { faUser, faSearch, faArrowLeft, faEnvelope, faMobileAlt } from '@fortawesome/free-solid-svg-icons';
 import { SIDENAV_MENUS as menuAlls } from './services/sidenav-menu.data';
 import { SidenavMenuModel } from './models/sidenav-menu';
 import { searchTreeNodePrev } from './services/helper';
+import { Router } from '@angular/router';
+import { TitleService } from './services/title.service';
 @Component({
   selector: 'app-tools-dcm',
   templateUrl: './tools-dcm.component.html',
@@ -15,18 +16,21 @@ export class ToolsDcmComponent implements OnInit {
   faSearch = faSearch;
   faUser = faUser;
   faArrowLeft = faArrowLeft;
-
-  iconName: IconName = 'coffee';
-  iconPrefix: IconPrefix = 'fal'
+  faEnvelope = faEnvelope;
+  faMobileAlt = faMobileAlt;
 
   prevMenu!: SidenavMenuModel;
   menuItems: SidenavMenuModel[] = JSON.parse(JSON.stringify(menuAlls.filter(item => item.level === 0)));
 
+  pageTitle!: string;
   // check router current url
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private titleService: TitleService) { }
 
   ngOnInit(): void {
+    this.titleService.getTitlePage().subscribe(title => this.pageTitle = title);
   }
 
   onBack() {
@@ -37,9 +41,7 @@ export class ToolsDcmComponent implements OnInit {
       this.menuItems = JSON.parse(JSON.stringify(menuAlls.filter(item => item.parentId === this.prevMenu.parentId)));
       this.prevMenu = JSON.parse(JSON.stringify(null));
     } else {
-      // console.log('this.prevMenu', this.prevMenu);
       const nodeSearch = searchTreeNodePrev(menuAlls, this.prevMenu.parentId);
-      // console.log(nodeSearch);
       if (nodeSearch) {
         this.prevMenu = nodeSearch;
       }
@@ -50,6 +52,12 @@ export class ToolsDcmComponent implements OnInit {
   onMenuClick(e: {curentValue: SidenavMenuModel}) {
     this.prevMenu = e.curentValue;
     this.menuItems = JSON.parse(JSON.stringify(e.curentValue.childs));
+  }
+
+  private redirectTo() {
+    if (this.prevMenu['url']) {
+      this.router.navigate([this.prevMenu.url]);
+    }
   }
 
 }
