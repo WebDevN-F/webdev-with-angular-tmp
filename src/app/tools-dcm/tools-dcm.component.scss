@@ -1,3 +1,5 @@
+@import 'globalVars';
+
 .wrapper-container {
   position: absolute;
   top: 0;
@@ -34,14 +36,14 @@ mat-sidenav {
 }
 
 .mat-toolbar.mat-sidenav {
-  background: #095187 url("/assets/logo-white.png") no-repeat left bottom;
+  background: #095187 url($pathAssets + "/assets/logo-white.png") no-repeat left bottom;
   color: #fff;
   background-size: 40% 60%;
   background-position: 16px 27px;
 }
 
 .mat-sidenav {
-  background: rgb(1, 102, 180) url("/assets/bg-sidebar-bottom.jpg") no-repeat
+  background: rgb(1, 102, 180) url($pathAssets + "/assets/bg-sidebar-bottom.jpg") no-repeat
     center bottom;
   background-size: contain;
   color: #fff;

@@ -40,7 +40,8 @@
             "scripts": [],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/stylings"
+                "src/stylings",
+                "src/stylings/environment-scss"
               ]
             }
           },
@@ -64,7 +65,13 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "stylePreprocessorOptions": {
+                "includePaths": [
+                  "src/stylings",
+                  "src/stylings/environment-prod-scss"
+                ]
+              }
             },
             "development": {
               "buildOptimizer": false,
@@ -114,7 +121,7 @@
             "scripts": [],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "./stylings"
+                "src/stylings"
               ]
             }
           }

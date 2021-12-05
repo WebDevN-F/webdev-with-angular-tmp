@@ -15,3 +15,5 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## References
 
 1. [Angular - Shortcut to Importing Styles Files in Components](https://www.digitalocean.com/community/tutorials/angular-shortcut-to-importing-styles-files-in-components)
+
+2. [Angular - pass env setting to sass variables](https://stackoverflow.com/questions/42515893/can-angular-cli-pass-environment-specific-settings-to-sass-variables)
