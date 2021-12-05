@@ -52,22 +52,4 @@ export class ToolsDcmComponent implements OnInit {
     this.menuItems = JSON.parse(JSON.stringify(e.curentValue.childs));
   }
 
-  private searchTreeNodePrev(trees: SidenavMenuModel[], nodeId?: number): SidenavMenuModel | null {
-    let stack = JSON.parse(JSON.stringify(trees));
-    while (stack.length > 0) {
-      let node = stack.pop();
-      if (node && node.id == nodeId) {
-        // Found it!
-        return node;
-      } else if (node && node.childs && node.childs.length > 0) {
-        for (let i = 0; i < node.childs.length; i++) {
-          stack.push(node.childs[i]);
-        }
-      }
-    }
-    // Didn't find it. Return null.
-    return null;
-  }
-
-
 }
