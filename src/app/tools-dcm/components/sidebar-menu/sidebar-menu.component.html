@@ -4,14 +4,14 @@
       <ng-container *ngIf="menuItem.level === 0 || (menuItem.childs && menuItem.childs.length > 0); else tmpChilren">
         <ng-container *ngIf="menuItem.isLink;else menuLevel0">
           <a mat-list-item [href]="menuItem.url" target="_blank">
-            <fa-icon [icon]="menuItem.icon"></fa-icon>
+            <fa-icon [icon]="menuItem.icon" class="icon-before"></fa-icon>
             <span class="flex-11-auto pl-5px">{{ menuItem.title }}</span>
           </a>
         </ng-container>
         <ng-template #menuLevel0>
           <ng-container>
             <a mat-list-item href="javascript:void(0)" onclick="return false;" (click)="onClickMenu(menuItem)">
-              <fa-icon [icon]="menuItem.icon"></fa-icon>
+              <fa-icon [icon]="menuItem.icon" class="icon-before"></fa-icon>
               <span class="flex-11-auto pl-5px">{{ menuItem.title }}</span>
               <fa-icon *ngIf="(menuItem.childs && menuItem.childs.length > 0)" [icon]="['fas', 'chevron-right']">
               </fa-icon>
@@ -23,7 +23,7 @@
       <ng-template #tmpChilren>
         <ng-container *ngIf="menuItem.isLink; else menuLeveln">
           <a mat-list-item [href]="menuItem.url" target="_blank">
-            <fa-icon [icon]="menuItem.icon"></fa-icon>
+            <fa-icon [icon]="menuItem.icon" class="icon-before"></fa-icon>
             <span class="flex-11-auto pl-5px">{{ menuItem.title }}</span>
           </a>
         </ng-container>
@@ -31,7 +31,7 @@
           <ng-container>
             <a mat-list-item [routerLink]="menuItem.url" routerLinkActive="active"
               [routerLinkActiveOptions]="{exact: true}">
-              <fa-icon [icon]="menuItem.icon"></fa-icon>
+              <fa-icon [icon]="menuItem.icon" class="icon-before"></fa-icon>
               <span class="flex-11-auto pl-5px">{{ menuItem.title }}</span>
               <!-- <fa-icon [icon]="['fas', 'chevron-right']"></fa-icon> -->
             </a>

@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "npx ng serve",
-    "build": "npx ng build",
+    "build": "npx ng build --deploy-url=webdev-with-angular-tmp/",
     "watch": "npx ng build --watch --configuration development",
     "test": "npx ng test",
     "deploy": "npx ng deploy --base-href=/webdev-with-angular-tmp/"
