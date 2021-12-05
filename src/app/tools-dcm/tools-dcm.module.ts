@@ -1,0 +1,67 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+// Add icons to the library for convenient access in other components
+import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { faClock as fasClock } from '@fortawesome/free-solid-svg-icons';
+import { faStar as fasStar } from '@fortawesome/free-solid-svg-icons';
+import { faChevronRight as fasChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { faBookMedical as fasBookMedical } from '@fortawesome/free-solid-svg-icons';
+import { faSearch as fasSearch } from '@fortawesome/free-solid-svg-icons';
+import { faArchive as fasArchive } from '@fortawesome/free-solid-svg-icons';
+import { faExchangeAlt as fasExchangeAlt } from '@fortawesome/free-solid-svg-icons';
+import { faSignOutAlt as fasSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { faSignInAlt as fasSignInAlt } from '@fortawesome/free-solid-svg-icons';
+import { faHdd as fasHdd } from '@fortawesome/free-solid-svg-icons';
+import { faTrashAlt as fasTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faFile as fasFaFile } from '@fortawesome/free-solid-svg-icons';
+import { faFileAlt as fasFileAlt } from '@fortawesome/free-solid-svg-icons';
+import { faUserCog as fasUserCog } from '@fortawesome/free-solid-svg-icons';
+import { faUsersCog as fasUsersCog } from '@fortawesome/free-solid-svg-icons';
+import { faPlus as fasPlus } from '@fortawesome/free-solid-svg-icons';
+
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatListModule } from '@angular/material/list';
+
+import { SidebarMenuComponent } from './components/sidebar-menu/sidebar-menu.component';
+import { ToolsDcmRoutingModule } from './tools-dcm-routing.module';
+import { ToolsDcmComponent } from './tools-dcm.component';
+import { ToolsDcmSearchComponent } from './components/tools-dcm-search/tools-dcm-search.component';
+
+const icons = [
+  fasStar, fasClock, fasChevronRight, fasBookMedical, fasSearch, fasArchive, fasExchangeAlt, fasSignOutAlt, fasSignInAlt, fasHdd, fasTrashAlt, fasFaFile, fasFileAlt, fasUsersCog, fasUserCog, fasPlus
+];
+
+@NgModule({
+  declarations: [
+    ToolsDcmComponent,
+    ToolsDcmSearchComponent,
+    SidebarMenuComponent,
+  ],
+  imports: [
+    CommonModule,
+    ToolsDcmRoutingModule,
+    FormsModule,
+    MatSidenavModule,
+    MatCheckboxModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatListModule,
+    FontAwesomeModule
+  ],
+})
+export class ToolsDcmModule {
+  constructor(library: FaIconLibrary) {
+    // Add multiple icons to the library
+    library.addIcons(...icons);
+    // use the fa- prefix on class names
+    // <!-- <fa-icon [icon]="['fas', 'star']"></fa-icon> -->
+    // <!-- <fa-icon [icon]="['fas', 'clock']"></fa-icon> -->
+  }
+}

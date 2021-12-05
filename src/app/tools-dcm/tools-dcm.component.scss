@@ -1,0 +1,62 @@
+.wrapper-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.wrapper-content {
+  overflow-y: auto;
+  height: 100%;
+  background-color: #ffff;
+}
+
+mat-sidenav {
+  width: 225px;
+}
+
+.margin-spacer {
+  flex: 1 1 auto;
+}
+
+.mat-toolbar.mat-white {
+  background: #fff;
+  color: #000;
+  box-shadow: 1px 2px 5px 1px #ddd;
+}
+
+.app-toolbar {
+  position: sticky;
+  position: -webkit-sticky; /* For macOS/iOS Safari */
+  top: 0; /* Sets the sticky toolbar to be on top */
+  z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+}
+
+.mat-toolbar.mat-sidenav {
+  background: #095187 url("/assets/logo-white.png") no-repeat left bottom;
+  color: #fff;
+  background-size: 40% 60%;
+  background-position: 16px 27px;
+}
+
+.mat-sidenav {
+  background: rgb(1, 102, 180) url("/assets/bg-sidebar-bottom.jpg") no-repeat
+    center bottom;
+  background-size: contain;
+  color: #fff;
+}
+
+.sidenav-back {
+  background: #095187 linear-gradient(#095187, #0166b4);
+  padding: 1em 0;
+}
+
+.nav-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  font-size: 11px;
+  text-align: right;
+  padding: 0 16px;
+}

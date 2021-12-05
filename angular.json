@@ -34,12 +34,13 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": [],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "./stylings"
+                "src/stylings"
               ]
             }
           },
@@ -107,6 +108,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": [],

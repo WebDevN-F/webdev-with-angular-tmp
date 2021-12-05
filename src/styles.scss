@@ -10,3 +10,27 @@
 body {
   font-family: "Poppins", sans-serif;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@mixin scollbar-custom() {
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    width: 0.5em;
+    height: 0.5em;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 3px;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.9);
+    }
+  }
+}
+
+.mat-drawer-inner-container {
+  @include scollbar-custom();
+}
