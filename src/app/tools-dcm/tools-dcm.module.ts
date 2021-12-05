@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 // Add icons to the library for convenient access in other components
 import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { faClock as fasClock } from '@fortawesome/free-solid-svg-icons';
@@ -32,7 +33,6 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { SidebarMenuComponent } from './components/sidebar-menu/sidebar-menu.component';
 import { ToolsDcmRoutingModule } from './tools-dcm-routing.module';
 import { ToolsDcmComponent } from './tools-dcm.component';
-import { ToolsDcmSearchComponent } from './components/tools-dcm-search/tools-dcm-search.component';
 
 const icons = [
   fasStar, fasClock, fasChevronRight, fasBookMedical, fasSearch, fasArchive, fasExchangeAlt, fasSignOutAlt, fasSignInAlt, fasHdd, fasTrashAlt, fasFaFile, fasFileAlt, fasUsersCog, fasUserCog, fasPlus
@@ -41,7 +41,6 @@ const icons = [
 @NgModule({
   declarations: [
     ToolsDcmComponent,
-    ToolsDcmSearchComponent,
     SidebarMenuComponent,
   ],
   imports: [
@@ -56,7 +55,7 @@ const icons = [
     MatListModule,
     MatTooltipModule,
     FontAwesomeModule
-  ],
+  ]
 })
 export class ToolsDcmModule {
   constructor(library: FaIconLibrary) {

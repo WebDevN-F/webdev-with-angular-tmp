@@ -7,7 +7,8 @@
     "build": "npx ng build --deploy-url=webdev-with-angular-tmp/",
     "watch": "npx ng build --watch --configuration development",
     "test": "npx ng test",
-    "deploy": "npx ng deploy --base-href=/webdev-with-angular-tmp/"
+    "deploy": "npx ng deploy --base-href=/webdev-with-angular-tmp/",
+    "lint": "ng lint"
   },
   "private": true,
   "dependencies": {
@@ -27,19 +28,30 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@ngrx/store": "^13.0.1",
     "@ngrx/store-devtools": "^13.0.1",
+    "@ngx-formly/core": "^6.0.0-next",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
     "uuid": "^8.3.2",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.11.4",
+    "@ngx-formly/material": "^6.0.0-next"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~13.0.3",
+    "@angular-eslint/builder": "13.0.0-alpha.1",
+    "@angular-eslint/eslint-plugin": "13.0.0-alpha.1",
+    "@angular-eslint/eslint-plugin-template": "13.0.0-alpha.1",
+    "@angular-eslint/schematics": "13.0.0-alpha.1",
+    "@angular-eslint/template-parser": "13.0.0-alpha.1",
     "@angular/cli": "~13.0.3",
     "@angular/compiler-cli": "~13.0.0",
+    "@ngx-formly/schematics": "^6.0.0-next.5",
     "@types/jasmine": "~3.10.0",
     "@types/node": "^12.11.1",
     "@types/uuid": "^8.3.3",
+    "@typescript-eslint/eslint-plugin": "5.3.0",
+    "@typescript-eslint/parser": "5.3.0",
     "angular-cli-ghpages": "^1.0.0",
+    "eslint": "^8.2.0",
     "jasmine-core": "~3.10.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",

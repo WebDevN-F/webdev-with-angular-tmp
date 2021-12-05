@@ -1,1 +1,15 @@
-<p>tools-dcm-search works!</p>
+<h3>Tìm kiếm hồ sơ</h3>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit(model)">
+  <formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
+  <div class="button-row" fxLayout="row" fxLayoutAlign="end" fxLayoutGap="5px">
+    <button type="button" mat-flat-button (click)="onRedoButton()">
+      <fa-icon [icon]="faRedo"></fa-icon>
+      <span>&nbsp;Khôi phục mặc định</span>
+    </button>
+    <button type="submit" mat-flat-button color="yellow">
+      <fa-icon [icon]="faSearch"></fa-icon>
+      <span>&nbsp;Tìm kiếm</span>
+    </button>
+  </div>
+</form>

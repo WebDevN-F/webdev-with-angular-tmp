@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+@import 'flexbox';
 
 * {
   box-sizing: border-box;
@@ -34,3 +35,118 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat-drawer-inner-container {
   @include scollbar-custom();
 }
+
+.padding-item {
+  padding: 1.5rem 5rem
+}
+
+.mat-flat-button.mat-yellow,
+.mat-raised-button.mat-yellow,
+.mat-fab.mat-yellow,
+.mat-mini-fab.mat-yellow {
+  background-color: #FDB913;
+}
+
+.mat-flat-button.mat-yellow,
+.mat-raised-button.mat-yellow,
+.mat-fab.mat-yellow,
+.mat-mini-fab.mat-yellow {
+  color: #fff;
+}
+
+.mat-form-field-wrapper {
+  padding-bottom: 0;
+}
+
+.display-flex {
+  @include flexbox;
+}
+
+.outer-shell {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: 100%;
+}
+
+.container {
+  padding: 50px 100px;
+  width: 100%;
+}
+
+.shell-container {
+  display: flex;
+  flex-grow: 1;
+}
+
+form {
+  width: 100%;
+}
+
+.button-row {
+  margin-bottom: 10px;
+  padding-right: 10px;
+}
+
+.multi-line-row {
+  width: 100%;
+  display: block;
+
+  formly-form {
+    display: flex;
+    width: 100%;
+
+    formly-field {
+      flex-grow: 1;
+      margin-right: 15px;
+    }
+
+    .row-action-buttons {
+      margin-top: 5px;
+
+      button {
+        width: inherit;
+        height: inherit;
+      }
+    }
+  }
+}
+
+
+.flex-1 {
+  flex: 1;
+}
+
+.flex-2 {
+  flex: 2;
+}
+
+.flex-3 {
+  flex: 3;
+}
+
+.flex-4 {
+  flex: 4;
+}
+
+.flex-5 {
+  flex: 5;
+}
+
+.flex-6 {
+  flex: 6;
+}
+
+[class*='flex-'] {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+[class*='flex-']:first-child {
+  padding-left: 0;
+}
+
+[class*='flex-']:nth-last-child(2) {
+  padding-right: 0;
+}
+
