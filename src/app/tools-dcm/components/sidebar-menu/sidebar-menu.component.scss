@@ -16,7 +16,7 @@
   > .mat-nav-list {
     > a.mat-list-item {
       color: #fff;
-      font-size: 11px;
+      font-size: 14px;
       border-right: 3px solid transparent;
       transition: all 0.3s ease-in-out;
       transition-property: color, border-right;
@@ -25,6 +25,9 @@
       }
       &.active {
         @include sidebar-menu-item-link();
+      }
+      fa-icon.ng-fa-icon {
+        width: 25px;
       }
     }
     .mat-divider {
