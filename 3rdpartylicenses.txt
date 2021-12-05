@@ -176,6 +176,12 @@ MIT
 @ngrx/store-devtools
 MIT
 
+@ngx-formly/core
+MIT
+
+@ngx-formly/material
+MIT
+
 rxjs
 Apache-2.0
                                Apache License
