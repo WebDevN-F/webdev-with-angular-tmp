@@ -30,7 +30,7 @@ export class ToolsDcmSearchComponent implements OnInit {
           placeholder: 'Enter branch',
         },
         focus: true,
-        className: 'flex-6',
+        className: 'flex-1',
       },
       {
         key: 'employeeCode',
@@ -39,7 +39,7 @@ export class ToolsDcmSearchComponent implements OnInit {
           label: 'Cán bộ quản lý hồ sơ',
           placeholder: 'Enter employee code',
         },
-        className: 'flex-6',
+        className: 'flex-1',
       },
     ]),
     formlyRow([
@@ -50,7 +50,7 @@ export class ToolsDcmSearchComponent implements OnInit {
           label: 'Nhóm hồ sơ',
           placeholder: 'Enter group code',
         },
-        className: 'flex-6',
+        className: 'flex-1',
       },
       {
         key: 'categoryCode',
@@ -59,19 +59,43 @@ export class ToolsDcmSearchComponent implements OnInit {
           label: 'Loại hồ sơ',
           placeholder: 'Enter category code',
         },
-        className: 'flex-6',
+        className: 'flex-1',
       },
     ]),
     formlyRow([
       {
-        key: 'rangeDate',
-        type: 'input',
-        templateOptions: {
-          label: 'Từ ngày - đến ngày',
-          placeholder: 'Từ ngày - đến ngày',
-        },
-        className: 'flex-6',
+        fieldGroupClassName: 'display-flex',
+        fieldGroup: [
+          {
+            key: 'startDate',
+            type: 'datepicker',
+            templateOptions: {
+              label: 'Từ ngày',
+              placeholder: 'Từ ngày - đến ngày',
+              datepickerOptions: {
+                min: new Date(2020, 12, 1),
+                max: new Date(2025, 12, 1)
+              },
+            },
+            className: 'flex-1',
+          },
+          {
+            key: 'endDate',
+            type: 'datepicker',
+            templateOptions: {
+              label: 'đến ngày',
+              placeholder: 'Từ ngày - đến ngày',
+              datepickerOptions: {
+                min: new Date(2020, 12, 1),
+                max: new Date(2025, 12, 1)
+              },
+            },
+            className: 'flex-1 pr-0',
+          },
+        ],
+        className: 'flex-1',
       },
+
       {
         key: 'status',
         type: 'input',
@@ -79,7 +103,7 @@ export class ToolsDcmSearchComponent implements OnInit {
           label: 'Trạng thái hồ sơ',
           placeholder: 'Trạng thái hồ sơ',
         },
-        className: 'flex-6',
+        className: 'flex-1',
       },
     ]),
     formlyRow([

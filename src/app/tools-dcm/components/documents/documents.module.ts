@@ -20,6 +20,11 @@ import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatButtonModule } from '@angular/material/button';
 
+import { FormlyMatDatepickerModule } from "@ngx-formly/material/datepicker";
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+
 
 @NgModule({
   declarations: [
@@ -39,7 +44,11 @@ import { MatButtonModule } from '@angular/material/button';
     DocumentsRoutingModule,
     FontAwesomeModule,
     FlexLayoutModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     FormlyModule.forRoot(),
+    FormlyMatDatepickerModule,
     FormsModule,
     ReactiveFormsModule,
     FormlyMaterialModule,
