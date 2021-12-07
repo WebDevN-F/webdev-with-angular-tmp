@@ -7,7 +7,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 1. Todo App With Service & rxjs method BehaviorSubject
 2. [Angular & Redux with NgRx/Store](https://www.youtube.com/watch?v=f97ICOaekNU)
 3. [Buiding a CardXModule  for Shared components](https://jasonwhite.xyz/posts/2020/04/26/creating-an-angular-component-library-card-component/).
- 
+4. A Theme Admin SaaS using Angular Material Component & Dynamic ngFormly
+
 ## Demo
 
 [webdevn-f.github.io/webdev-with-angular-tmp/](https://webdevn-f.github.io/webdev-with-angular-tmp/)
