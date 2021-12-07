@@ -16,7 +16,7 @@ import { DocUpdatingComponent } from './doc-updating/doc-updating.component';
 import { DocRevokingComponent } from './doc-revoking/doc-revoking.component';
 import { ToolsDcmSearchComponent } from '../tools-dcm-search/tools-dcm-search.component';
 import { DocSearchListComponent } from './doc-search-list/doc-search-list.component';
-import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { MatFormFieldModule, MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatButtonModule } from '@angular/material/button';
 
@@ -24,7 +24,11 @@ import { FormlyMatDatepickerModule } from "@ngx-formly/material/datepicker";
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { NgSelectFormlyComponent } from './ng-select.type';
+import { MatSelectModule } from '@angular/material/select';
 
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -37,22 +41,32 @@ import { MatNativeDateModule } from '@angular/material/core';
     DocUpdatingComponent,
     DocRevokingComponent,
     ToolsDcmSearchComponent,
-    DocSearchListComponent
+    DocSearchListComponent,
+    NgSelectFormlyComponent
   ],
   imports: [
     CommonModule,
+    HttpClientModule,
     DocumentsRoutingModule,
     FontAwesomeModule,
     FlexLayoutModule,
     MatInputModule,
+    MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    FormlyModule.forRoot(),
-    FormlyMatDatepickerModule,
-    FormsModule,
+    MatButtonModule,
+    NgSelectModule,
+    FormlyModule.forRoot({
+      types: [
+        {
+          name: 'my-autocomplete',
+          component: NgSelectFormlyComponent,
+        }
+      ],
+    }),
     ReactiveFormsModule,
     FormlyMaterialModule,
-    MatButtonModule
+    FormlyMatDatepickerModule,
   ],
   providers: [
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}

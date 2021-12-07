@@ -20,6 +20,7 @@ import { SidenavMenuModel } from '../../models/sidenav-menu';
   ]
 })
 export class SidebarMenuComponent implements OnInit {
+  @Input() currentMenu!: string;
   @Input() menuItems: SidenavMenuModel[] = [];
   @Output() menuClick: EventEmitter<{curentValue: SidenavMenuModel;}> = new EventEmitter<{curentValue: SidenavMenuModel;}>();
   constructor() { }

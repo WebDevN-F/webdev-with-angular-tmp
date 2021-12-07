@@ -9,7 +9,7 @@
       </button>
     </div>
 
-    <app-sidebar-menu [menuItems]="menuItems" (menuClick)="onMenuClick($event)"></app-sidebar-menu>
+    <app-sidebar-menu [menuItems]="menuItems" (menuClick)="onMenuClick($event)" [currentMenu]="urlChange"></app-sidebar-menu>
 
     <p class="nav-footer">&copy; 2021 - ngnam</p>
 

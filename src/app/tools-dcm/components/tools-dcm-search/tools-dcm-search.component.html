@@ -1,7 +1,7 @@
 <h3>Tìm kiếm hồ sơ</h3>
 
-<form [formGroup]="form" (ngSubmit)="onSubmit(model)">
-  <formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
+<form [formGroup]="form" (ngSubmit)="onSubmit(form)">
+  <formly-form [form]="form" [fields]="fields" [model]="model" fxLayout="column"></formly-form>
   <div class="button-row" fxLayout="row" fxLayoutAlign="end" fxLayoutGap="5px">
     <button type="button" mat-flat-button (click)="onRedoButton()">
       <fa-icon [icon]="faRedo"></fa-icon>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators } from '@angular/forms';
 import { faSearch, faRedo } from '@fortawesome/free-solid-svg-icons';
 import { FormlyFieldConfig } from '@ngx-formly/core';
+import { DataService } from '../../services/data.service';
 
 const formlyRow = (fieldConfig: FormlyFieldConfig[]) => {
   return {
@@ -24,20 +25,22 @@ export class ToolsDcmSearchComponent implements OnInit {
     formlyRow([
       {
         key: 'branchCode',
-        type: 'input',
+        type: 'my-autocomplete',
+        // type: 'select', // <select>
         templateOptions: {
           label: 'Chi nhánh quản lý hồ sơ',
-          placeholder: 'Enter branch',
+          options: this.dataService.getBranchs(),
         },
-        focus: true,
         className: 'flex-1',
       },
       {
         key: 'employeeCode',
-        type: 'input',
+        // type: 'select',
+        type: 'my-autocomplete',
         templateOptions: {
           label: 'Cán bộ quản lý hồ sơ',
           placeholder: 'Enter employee code',
+          options: this.dataService.getBranchs(),
         },
         className: 'flex-1',
       },
@@ -45,19 +48,21 @@ export class ToolsDcmSearchComponent implements OnInit {
     formlyRow([
       {
         key: 'groupCode',
-        type: 'input',
+        type: 'my-autocomplete',
         templateOptions: {
           label: 'Nhóm hồ sơ',
           placeholder: 'Enter group code',
+          options: this.dataService.getBranchs(),
         },
         className: 'flex-1',
       },
       {
         key: 'categoryCode',
-        type: 'input',
+        type: 'my-autocomplete',
         templateOptions: {
           label: 'Loại hồ sơ',
           placeholder: 'Enter category code',
+          options: this.dataService.getBranchs(),
         },
         className: 'flex-1',
       },
@@ -98,10 +103,11 @@ export class ToolsDcmSearchComponent implements OnInit {
 
       {
         key: 'status',
-        type: 'input',
+        type: 'select',
         templateOptions: {
           label: 'Trạng thái hồ sơ',
           placeholder: 'Trạng thái hồ sơ',
+          options: this.dataService.getBranchs(),
         },
         className: 'flex-1',
       },
@@ -120,18 +126,17 @@ export class ToolsDcmSearchComponent implements OnInit {
 
   ];
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
   }
 
-  onSubmit(model: any): void {
-    console.log(this.form.valid);
-
-    console.log(model);
+  onSubmit(form: FormGroup) {
+    const { value, valid } = form;
+    console.log(value);
   }
 
-  onRedoButton() {
+  onRedoButton(): void {
     this.form.reset();
   }
 

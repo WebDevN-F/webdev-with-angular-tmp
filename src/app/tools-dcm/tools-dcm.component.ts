@@ -5,6 +5,8 @@ import { SidenavMenuModel } from './models/sidenav-menu';
 import { searchTreeNodePrev } from './services/helper';
 import { Router } from '@angular/router';
 import { TitleService } from './services/title.service';
+import { Location } from '@angular/common';
+
 @Component({
   selector: 'app-tools-dcm',
   templateUrl: './tools-dcm.component.html',
@@ -20,17 +22,21 @@ export class ToolsDcmComponent implements OnInit {
   faMobileAlt = faMobileAlt;
 
   prevMenu!: SidenavMenuModel;
-  menuItems: SidenavMenuModel[] = JSON.parse(JSON.stringify(menuAlls.filter(item => item.level === 0)));
+  menuItems: SidenavMenuModel[] = [];
 
   pageTitle!: string;
-  // check router current url
+  urlChange!: string;
 
   constructor(
     private router: Router,
-    private titleService: TitleService) { }
+    private titleService: TitleService,
+    private location: Location
+    ) { }
 
   ngOnInit(): void {
     this.titleService.getTitlePage().subscribe(title => this.pageTitle = title);
+    this.urlChange = this.location.path();
+    this.menuItems = JSON.parse(JSON.stringify(menuAlls.filter(item => item.level === 0)))
   }
 
   onBack() {
