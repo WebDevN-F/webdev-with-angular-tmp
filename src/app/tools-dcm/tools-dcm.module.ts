@@ -22,6 +22,7 @@ import { faUserCog as fasUserCog } from '@fortawesome/free-solid-svg-icons';
 import { faUsersCog as fasUsersCog } from '@fortawesome/free-solid-svg-icons';
 import { faPlus as fasPlus } from '@fortawesome/free-solid-svg-icons';
 
+import {LayoutModule} from '@angular/cdk/layout';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -54,7 +55,8 @@ const icons = [
     MatButtonModule,
     MatListModule,
     MatTooltipModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    LayoutModule
   ]
 })
 export class ToolsDcmModule {
