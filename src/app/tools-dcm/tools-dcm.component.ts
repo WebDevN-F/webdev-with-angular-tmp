@@ -6,6 +6,7 @@ import { searchTreeNodePrev } from './services/helper';
 import { Router } from '@angular/router';
 import { TitleService } from './services/title.service';
 import { Location } from '@angular/common';
+import { BreakpointObserver } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-tools-dcm',
@@ -13,7 +14,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./tools-dcm.component.scss']
 })
 export class ToolsDcmComponent implements OnInit {
-  opened: boolean = true;
+  opened: boolean = !this.breakpointObserver.isMatched('(max-width: 599px)');
 
   faSearch = faSearch;
   faUser = faUser;
@@ -30,7 +31,8 @@ export class ToolsDcmComponent implements OnInit {
   constructor(
     private router: Router,
     private titleService: TitleService,
-    private location: Location
+    private location: Location,
+    private breakpointObserver: BreakpointObserver
     ) { }
 
   ngOnInit(): void {
