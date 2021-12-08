@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormGroup, Validators } from '@angular/forms';
 import { faSearch, faRedo } from '@fortawesome/free-solid-svg-icons';
 import { FormlyFieldConfig } from '@ngx-formly/core';
@@ -18,6 +18,7 @@ const formlyRow = (fieldConfig: FormlyFieldConfig[]) => {
   styleUrls: ['./tools-dcm-search.component.scss']
 })
 export class ToolsDcmSearchComponent implements OnInit {
+  @Output() onSearch = new EventEmitter<any>();
   faSearch = faSearch;
   faRedo = faRedo;
   form = new FormGroup({});
@@ -160,7 +161,9 @@ export class ToolsDcmSearchComponent implements OnInit {
 
   onSubmit(form: FormGroup) {
     const { value, valid } = form;
-    console.log(value);
+    if (valid) {
+      this.onSearch.emit(value);
+    }
   }
 
   onRedoButton(): void {

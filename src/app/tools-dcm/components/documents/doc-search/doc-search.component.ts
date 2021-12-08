@@ -12,4 +12,8 @@ export class DocSearchComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  ondcmSearch(event: any) {
+    console.log(`ondcmSearch`, event);
+  }
+
 }
