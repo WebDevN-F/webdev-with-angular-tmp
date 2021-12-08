@@ -36,8 +36,8 @@ export class ToolsDcmComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.titleService.getTitlePage().subscribe(title => this.pageTitle = title);
-    this.urlChange = this.location.path();
+    this.titleService.getTitlePage().subscribe(title => this.pageTitle = title)
+    this.urlChange = this.location.path()
     this.menuItems = JSON.parse(JSON.stringify(menuAlls.filter(item => item.level === 0)))
   }
 

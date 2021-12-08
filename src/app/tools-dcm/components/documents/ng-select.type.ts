@@ -10,6 +10,7 @@ import { FieldType } from '@ngx-formly/core';
       [formControl]="formControl"
       [items]="options$ | async"
       [placeholder]="to.label!"
+      [bindLabel]="to['bindLabel'] || 'label'"
       [bindValue]="to['bindValue'] || 'value'"
       [class.is-invalid]="showError">
     </ng-select>

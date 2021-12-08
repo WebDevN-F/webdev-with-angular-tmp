@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators } from '@angular/forms';
 import { faSearch, faRedo } from '@fortawesome/free-solid-svg-icons';
 import { FormlyFieldConfig } from '@ngx-formly/core';
+import { map } from 'rxjs/internal/operators/map';
+import { switchMap } from 'rxjs/internal/operators/switchMap';
 import { DataService } from '../../services/data.service';
 
 const formlyRow = (fieldConfig: FormlyFieldConfig[]) => {
@@ -29,7 +31,12 @@ export class ToolsDcmSearchComponent implements OnInit {
         // type: 'select', // <select>
         templateOptions: {
           label: 'Chi nhánh quản lý hồ sơ',
-          options: this.dataService.getBranchs(),
+          options: this.dataService.getBranchs().pipe(map(data => data.map(item => {
+            return {
+              label: item.value ? `Chi nhánh ${item.label}` : item.label,
+              value: item.value,
+            }
+          }))),
         },
         className: 'flex-1',
       },
@@ -40,7 +47,12 @@ export class ToolsDcmSearchComponent implements OnInit {
         templateOptions: {
           label: 'Cán bộ quản lý hồ sơ',
           placeholder: 'Enter employee code',
-          options: this.dataService.getBranchs(),
+          options: this.dataService.getBranchs().pipe(map(data => data.map(item => {
+            return {
+              label: item.value ? `Cán bộ ${item.label}` : item.label,
+              value: item.value,
+            }
+          }))),
         },
         className: 'flex-1',
       },
@@ -52,7 +64,12 @@ export class ToolsDcmSearchComponent implements OnInit {
         templateOptions: {
           label: 'Nhóm hồ sơ',
           placeholder: 'Enter group code',
-          options: this.dataService.getBranchs(),
+          options: this.dataService.getBranchs().pipe(map(data => data.map(item => {
+            return {
+              label: item.value ? `Nhóm hồ sơ ${item.label}` : item.label,
+              value: item.value,
+            }
+          }))),
         },
         className: 'flex-1',
       },
@@ -62,7 +79,12 @@ export class ToolsDcmSearchComponent implements OnInit {
         templateOptions: {
           label: 'Loại hồ sơ',
           placeholder: 'Enter category code',
-          options: this.dataService.getBranchs(),
+          options: this.dataService.getBranchs().pipe(map(data => data.map(item => {
+            return {
+              label: item.value ? `Loại hồ sơ ${item.label}` : item.label,
+              value: item.value,
+            }
+          }))),
         },
         className: 'flex-1',
       },
@@ -107,7 +129,12 @@ export class ToolsDcmSearchComponent implements OnInit {
         templateOptions: {
           label: 'Trạng thái hồ sơ',
           placeholder: 'Trạng thái hồ sơ',
-          options: this.dataService.getBranchs(),
+          options: [
+            { label: 'Chờ xử lý', value: '0' },
+            { label: 'Đang xử lý', value: '1' },
+            { label: 'Đã xử lý', value: '2' },
+            { label: 'Đã hủy', value: '3' },
+          ],
         },
         className: 'flex-1',
       },
