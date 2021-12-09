@@ -2,10 +2,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
 @import 'flexbox';
 
-// .ng-select .ng-select-container.ng-appearance-outline {
-//   min-height: 58px;
-// }
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -143,19 +139,5 @@ form {
   [class*='flex-'] {
     padding-left: 5px!important;
     padding-right: 5px!important;
-  }
-}
-
-@import "~@ng-select/ng-select/themes/material.theme.css";
-
-.ng-select {
-  padding-bottom: 1em;
-}
-.ng-select .ng-select-container {
-  .ng-input {
-    padding: 10px 10px 5px 10px;
-  }
-  .ng-value {
-    padding: 5px;
   }
 }

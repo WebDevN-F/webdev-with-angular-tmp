@@ -62,3 +62,16 @@ mat-sidenav {
   text-align: right;
   padding: 0 16px;
 }
+
+::ng-deep .ng-select {
+  padding-bottom: 1em;
+}
+
+::ng-deep .ng-select .ng-select-container {
+  .ng-input {
+    padding: 10px 10px 5px 10px;
+  }
+  .ng-value {
+    padding: 5px;
+  }
+}
