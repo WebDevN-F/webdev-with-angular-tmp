@@ -1,0 +1,70 @@
+<div class="css-slider-wrapper">
+
+  <input type="radio" name="slider" class="slide-radio1" checked id="slider_1">
+  <input type="radio" name="slider" class="slide-radio2" id="slider_2">
+  <input type="radio" name="slider" class="slide-radio3" id="slider_3">
+  <input type="radio" name="slider" class="slide-radio4" id="slider_4">
+
+
+  <div class="slider-pagination">
+    <label for="slider_1" class="page1"></label>
+    <label for="slider_2" class="page2"></label>
+    <label for="slider_3" class="page3"></label>
+    <label for="slider_4" class="page4"></label>
+  </div>
+
+  <div class="next control">
+    <label for="slider_1" class="numb1">
+      <fa-icon [icon]="faArrowAltCircleRight"></fa-icon>
+    </label>
+    <label for="slider_2" class="numb2">
+      <fa-icon [icon]="faArrowAltCircleRight"></fa-icon>
+    </label>
+    <label for="slider_3" class="numb3">
+      <fa-icon [icon]="faArrowAltCircleRight"></fa-icon>
+    </label>
+    <label for="slider_4" class="numb4">
+      <fa-icon [icon]="faArrowAltCircleRight"></fa-icon>
+    </label>
+  </div>
+  <div class="previous control">
+    <label for="slider_1" class="numb1">
+      <fa-icon [icon]="faArrowAltCircleLeft"></fa-icon>
+    </label>
+    <label for="slider_2" class="numb2">
+      <fa-icon [icon]="faArrowAltCircleLeft"></fa-icon>
+    </label>
+    <label for="slider_3" class="numb3">
+      <fa-icon [icon]="faArrowAltCircleLeft"></fa-icon>
+    </label>
+    <label for="slider_4" class="numb4">
+      <fa-icon [icon]="faArrowAltCircleLeft"></fa-icon>
+    </label>
+  </div>
+
+  <div class="slider slide1">
+    <div>
+      <h2>Todo App With Service & rxjs method BehaviorSubject</h2>
+      <a [routerLink]="'todo'" class="button">Demo</a>
+    </div>
+  </div>
+  <div class="slider slide2">
+    <div>
+      <h2>Angular & Redux with NgRx/Store</h2>
+      <a [routerLink]="'ngrx-quick'" class="button">Demo</a>
+    </div>
+  </div>
+  <div class="slider slide3">
+    <div>
+      <h2> A Theme Admin SaaS using Angular Material Component & Dynamic ngFormly</h2>
+      <a [routerLink]="'tools-dcm'" class="button">Download</a>
+    </div>
+  </div>
+  <div class="slider slide4">
+    <div>
+      <h2>Nguyen Van Nam</h2>
+      <a href="tel:0928351036" class="button">Contact</a>
+    </div>
+  </div>
+
+</div>
