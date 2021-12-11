@@ -1,15 +1,15 @@
-<h3>Tìm kiếm hồ sơ</h3>
+<h3>{{ title }}</h3>
 
 <form [formGroup]="form" (ngSubmit)="onSubmit(form)">
   <formly-form [form]="form" [fields]="fields" [model]="model" fxLayout="column"></formly-form>
   <div class="button-row" fxLayout="row" fxLayoutAlign="end" fxLayoutGap="5px">
     <button type="button" mat-flat-button (click)="onRedoButton()">
       <fa-icon [icon]="faRedo"></fa-icon>
-      <span>&nbsp;Khôi phục mặc định</span>
+      <span>&nbsp;{{ textButtonReset }} </span>
     </button>
     <button type="submit" mat-flat-button color="yellow">
       <fa-icon [icon]="faSearch"></fa-icon>
-      <span>&nbsp;Tìm kiếm</span>
+      <span>&nbsp; {{ textButtonSearch }}</span>
     </button>
   </div>
 </form>

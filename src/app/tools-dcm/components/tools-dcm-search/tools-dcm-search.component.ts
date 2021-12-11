@@ -19,10 +19,14 @@ const formlyRow = (fieldConfig: FormlyFieldConfig[]) => {
 })
 export class ToolsDcmSearchComponent implements OnInit {
   @Output() onSearch = new EventEmitter<any>();
+  @Output() onReset = new EventEmitter<any>();
   faSearch = faSearch;
   faRedo = faRedo;
   form = new FormGroup({});
   model = { };
+  title = 'Tìm kiếm hồ sơ';
+  textButtonReset = 'Khôi phục mặc định';
+  textButtonSearch = 'Tìm kiếm';
 
   fields: FormlyFieldConfig[] = [
     formlyRow([
@@ -168,6 +172,7 @@ export class ToolsDcmSearchComponent implements OnInit {
 
   onRedoButton(): void {
     this.form.reset();
+    this.onReset.emit();
   }
 
 }

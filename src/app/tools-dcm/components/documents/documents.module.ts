@@ -19,6 +19,7 @@ import { DocSearchListComponent } from './doc-search-list/doc-search-list.compon
 import { MatFormFieldModule, MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
 
 import { FormlyMatDatepickerModule } from "@ngx-formly/material/datepicker";
 import { MatInputModule } from '@angular/material/input';
@@ -56,6 +57,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatNativeDateModule,
     MatButtonModule,
     NgSelectModule,
+    MatTableModule,
     FormlyModule.forRoot({
       types: [
         {
