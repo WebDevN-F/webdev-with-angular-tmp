@@ -1,2 +1,2 @@
 <app-tools-dcm-search (onSearch)="ondcmSearch($event)" (onReset)="onReset()"></app-tools-dcm-search>
-<app-doc-search-list [data]="documents" [isLoadingResults]="isLoadingResults"></app-doc-search-list>
+<app-doc-search-list [title]="'Thông tin hồ sơ'" [data]="documents" [isLoadingResults]="isLoadingResults" [columns]="columnsToDisplay" (onClickRow)="onClickRowSearch($event)"></app-doc-search-list>
