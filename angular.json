@@ -141,6 +141,46 @@
           }
         }
       }
+    },
+    "ngx-tour-wizard": {
+      "projectType": "library",
+      "root": "projects/ngx-tour-wizard",
+      "sourceRoot": "projects/ngx-tour-wizard/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ngx-tour-wizard/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-tour-wizard/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ngx-tour-wizard/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-tour-wizard/src/test.ts",
+            "tsConfig": "projects/ngx-tour-wizard/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-tour-wizard/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/ngx-tour-wizard/**/*.ts",
+              "projects/ngx-tour-wizard/**/*.html"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "webdev-with-angular-tmp"
