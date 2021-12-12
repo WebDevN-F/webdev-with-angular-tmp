@@ -20,6 +20,7 @@ import { MatFormFieldModule, MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/mat
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { FormlyMatDatepickerModule } from "@ngx-formly/material/datepicker";
 import { MatInputModule } from '@angular/material/input';
@@ -28,6 +29,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { NgSelectFormlyComponent } from './ng-select.type';
 import { MatSelectModule } from '@angular/material/select';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -58,6 +60,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatButtonModule,
     NgSelectModule,
     MatTableModule,
+    MatPaginatorModule,
+    MatProgressSpinnerModule,
     FormlyModule.forRoot({
       types: [
         {

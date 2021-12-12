@@ -1,2 +1,2 @@
 <app-tools-dcm-search (onSearch)="ondcmSearch($event)" (onReset)="onReset()"></app-tools-dcm-search>
-<app-doc-search-list [data]="documents$ | async"></app-doc-search-list>
+<app-doc-search-list [data]="documents" [isLoadingResults]="isLoadingResults"></app-doc-search-list>

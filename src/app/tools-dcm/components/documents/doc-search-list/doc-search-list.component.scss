@@ -1,3 +1,75 @@
 table {
   width: 100%;
 }
+
+.webdev-mat-table {
+  .mat-row:not(.row-no-data) {
+    &:hover {
+      background-color: #ddd !important;
+    }
+  }
+  .mat-row:nth-child(even) {
+    background-color: #efefef;
+  }
+
+  .mat-row:nth-child(odd) {
+    background-color: #fff;
+  }
+
+  .mat-header-row {
+    background-color: #fdb913;
+    th {
+      font-weight: 600;
+      color: #fff;
+    }
+  }
+}
+
+.webdev-container {
+  position: relative;
+}
+
+.webdev-table-container {
+  position: relative;
+  min-height: 200px;
+  max-height: 400px;
+  // max-height: calc(400px - 56.63px); // or height:calc(100vh - 155px); depending on your need  change
+  overflow: auto;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+
+  .mat-paginator {
+    position: sticky;
+    bottom: 0;
+  }
+}
+
+.webdev-loading-shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 56px;
+  right: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Column Widths */
+/* matColumnDef="number" */
+/* matColumnDef="state" */
+/* matColumnDef="created" */
+// .mat-column-number,
+// .mat-column-state {
+//   max-width: 64px;
+// }
+
+// .mat-column-created {
+//   max-width: 124px;
+// }
+::ng-deep .mat-paginator-container {
+  .mat-paginator-range-actions {
+    margin-left: auto;
+  }
+}

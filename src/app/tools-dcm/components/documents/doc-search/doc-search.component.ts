@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { of } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { of as observableOf, startWith, Subject, switchMap, takeUntil } from 'rxjs';
 import { Observable } from 'rxjs/internal/Observable';
 import { DataService } from '../../../services/data.service';
 
@@ -8,9 +8,15 @@ import { DataService } from '../../../services/data.service';
   templateUrl: './doc-search.component.html',
   styleUrls: ['./doc-search.component.scss']
 })
-export class DocSearchComponent implements OnInit {
+export class DocSearchComponent implements OnInit, OnDestroy {
+  /**
+   * Using a Subject as a replacement for the `takeUntil` operator
+   * https://stackoverflow.com/questions/38008334/angular-rxjs-when-should-i-unsubscribe-from-subscription
+   */
+  private componentDestroyed$: Subject<boolean> = new Subject()
 
-  documents$: Observable<any[]> | undefined;
+  documents!: any[];
+  isLoadingResults = true;
 
   constructor(private dataService: DataService) { }
 
@@ -19,11 +25,30 @@ export class DocSearchComponent implements OnInit {
 
   ondcmSearch(event: any) {
     console.log(`ondcmSearch`, event);
-    this.documents$ = this.dataService.getDocuments();
+    this.dataService.getDocuments()
+      .pipe(
+        startWith([]),
+        switchMap((data) => {
+          this.isLoadingResults = true;
+          return observableOf(data);
+        }),
+        takeUntil(this.componentDestroyed$)
+      )
+      .subscribe(data => {
+        this.documents = data;
+        setTimeout(() => {
+          this.isLoadingResults = false
+        }, 2000);
+      });
   }
 
   onReset() {
-    this.documents$ = undefined;
+    this.documents = [];
+  }
+
+  ngOnDestroy() {
+    this.componentDestroyed$.next(true)
+    this.componentDestroyed$.complete()
   }
 
 }
