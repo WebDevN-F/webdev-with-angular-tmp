@@ -1,7 +1,8 @@
-import { AfterViewInit, Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnChanges, OnInit, Output, QueryList, SimpleChanges, ViewChild, ViewChildren } from '@angular/core';
 import { DocumentInfo } from '../../../models/document.model';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatSort, Sort } from '@angular/material/sort';
 
 // https://stackoverflow.com/questions/51346447/mat-table-with-ngfor-and-sorting
 
@@ -13,7 +14,10 @@ import { MatTableDataSource } from '@angular/material/table';
 export class DocSearchListComponent implements OnChanges {
   @Input() data!: DocumentInfo[];
   @Input() isLoadingResults!: boolean;
-  displayedColumns: {field: string; column: string; [key: string]: any;}[] = [
+  @Input() backendSort!: boolean;
+  @Output() onSortChange: EventEmitter<Sort> = new EventEmitter<Sort>();
+
+  displayedColumns: { field: string; column: string;[key: string]: any; }[] = [
     // 'id', 'losId', 'cif', 'fullName', 'timeStore', 'sealCode', 'stack', 'track', 'crown', 'sealCrown', 'status'
     // { field: 'id', column: 'ID', hidden: true },
     { field: 'losId', column: 'Số LOS' },
@@ -29,6 +33,8 @@ export class DocSearchListComponent implements OnChanges {
   ];
   dataSource = new MatTableDataSource<DocumentInfo>(this.data);
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+
   pageIndex = 0;
   pageSize = 10;
 
@@ -38,8 +44,21 @@ export class DocSearchListComponent implements OnChanges {
       this.dataSource.data = changes['data'].currentValue
       console.log(this.dataSource.data);
 
-      setTimeout(() => this.dataSource.paginator = this.paginator, 100);
+      setTimeout(() => {
+        this.dataSource.paginator = this.paginator
+        if (!this.backendSort) {
+          this.dataSource.sort = this.sort
+        }
+      }, 100);
     }
+  }
+
+  sortData(sort: Sort) {
+    if (!this.backendSort) {
+      return;
+    }
+    console.log('backend sort', sort);
+    this.onSortChange.emit(sort);
   }
 
 }

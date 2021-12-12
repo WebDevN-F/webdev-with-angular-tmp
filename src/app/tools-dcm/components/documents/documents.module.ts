@@ -21,6 +21,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSortModule } from '@angular/material/sort';
 
 import { FormlyMatDatepickerModule } from "@ngx-formly/material/datepicker";
 import { MatInputModule } from '@angular/material/input';
@@ -62,6 +63,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatTableModule,
     MatPaginatorModule,
     MatProgressSpinnerModule,
+    MatSortModule,
     FormlyModule.forRoot({
       types: [
         {

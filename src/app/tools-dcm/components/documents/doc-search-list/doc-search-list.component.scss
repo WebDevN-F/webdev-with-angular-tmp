@@ -1,3 +1,20 @@
+@mixin scollbar-custom() {
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    width: 0.5em;
+    height: 0.5em;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(253, 185, 19, 0.7);
+    border-radius: 3px;
+
+    &:hover {
+      background: rgba(253, 185, 19, 0.9);
+    }
+  }
+}
+
 table {
   width: 100%;
 }
@@ -23,6 +40,10 @@ table {
       color: #fff;
     }
   }
+
+  .mat-sort-header-container {
+    align-items: center;
+  }
 }
 
 .webdev-container {
@@ -36,7 +57,7 @@ table {
   // max-height: calc(400px - 56.63px); // or height:calc(100vh - 155px); depending on your need  change
   overflow: auto;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-
+  @include scollbar-custom();
   .mat-paginator {
     position: sticky;
     bottom: 0;
