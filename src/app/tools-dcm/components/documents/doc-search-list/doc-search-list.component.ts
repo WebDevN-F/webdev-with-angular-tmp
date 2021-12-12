@@ -16,6 +16,7 @@ export class DocSearchListComponent implements OnChanges {
   @Input() isLoadingResults!: boolean;
   @Input() backendSort!: boolean;
   @Output() onSortChange: EventEmitter<Sort> = new EventEmitter<Sort>();
+  @Output() onPageChange: EventEmitter<any> = new EventEmitter<any>();
 
   displayedColumns: { field: string; column: string;[key: string]: any; }[] = [
     // 'id', 'losId', 'cif', 'fullName', 'timeStore', 'sealCode', 'stack', 'track', 'crown', 'sealCrown', 'status'
@@ -61,4 +62,9 @@ export class DocSearchListComponent implements OnChanges {
     this.onSortChange.emit(sort);
   }
 
+  pageChange(event: any) {
+    this.pageIndex = event.pageIndex;
+    this.pageSize = event.pageSize;
+    this.onPageChange.emit(event);
+  }
 }
