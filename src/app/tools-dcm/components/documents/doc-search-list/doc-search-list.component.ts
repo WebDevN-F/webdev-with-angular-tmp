@@ -18,20 +18,23 @@ export class DocSearchListComponent implements OnChanges {
   @Output() onSortChange: EventEmitter<Sort> = new EventEmitter<Sort>();
   @Output() onPageChange: EventEmitter<any> = new EventEmitter<any>();
 
-  displayedColumns: { field: string; column: string;[key: string]: any; }[] = [
+  columns: { columnDef: string; header: string;[key: string]: any; }[] = [
     // 'id', 'losId', 'cif', 'fullName', 'timeStore', 'sealCode', 'stack', 'track', 'crown', 'sealCrown', 'status'
-    // { field: 'id', column: 'ID', hidden: true },
-    { field: 'losId', column: 'Số LOS' },
-    { field: 'cif', column: 'Số CIF' },
-    { field: 'fullName', column: 'Họ tên khách hàng' },
-    { field: 'timeStore', column: 'Thời gian lưu trữ' },
-    { field: 'sealCode', column: 'Mã Seal' },
-    { field: 'stack', column: 'Tủ/kệ' },
-    { field: 'track', column: 'Ngăn/giá' },
-    { field: 'crown', column: 'Mã thùng' },
-    { field: 'sealCrown', column: 'Mã seal thùng' },
-    { field: 'status', column: 'Trạng thái hồ sơ' },
+    { columnDef: 'losId', header: 'Số LOS' },
+    { columnDef: 'cif', header: 'Số CIF' },
+    { columnDef: 'fullName', header: 'Họ tên khách hàng' },
+    { columnDef: 'timeStore', header: 'Thời gian lưu trữ' },
+    { columnDef: 'sealCode', header: 'Mã Seal' },
+    { columnDef: 'stack', header: 'Tủ/kệ' },
+    { columnDef: 'track', header: 'Ngăn/giá' },
+    { columnDef: 'crown', header: 'Mã thùng' },
+    { columnDef: 'sealCrown', header: 'Mã seal thùng' },
+    { columnDef: 'status', header: 'Trạng thái hồ sơ' },
   ];
+
+  displayedColumns: string[] = this.columns.map(c => c.columnDef);
+
+
   dataSource = new MatTableDataSource<DocumentInfo>(this.data);
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;

@@ -9,18 +9,18 @@
       <table mat-table matSort [dataSource]="dataSource" class="webdev-mat-table" (matSortChange)="sortData($event)">
 
         <!-- losId Column -->
-        <ng-container matColumnDef="losId">
+        <!-- <ng-container matColumnDef="losId">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Số LOS </th>
           <td mat-cell *matCellDef="let element"> {{element.losId}} </td>
-        </ng-container>
-
-        <!-- <ng-container *ngFor="let col of displayedColumns" [matColumnDef]="col.field">
-          <th mat-header-cell *matHeaderCellDef> {{ col.column }} </th>
-          <td mat-cell *matCellDef="let element"> {{ element[col.field] }} </td>
         </ng-container> -->
 
-        <tr mat-header-row *matHeaderRowDef="['losId']; sticky: true"></tr>
-        <tr mat-row *matRowDef="let row; columns: ['losId']"></tr>
+        <ng-container *ngFor="let column of columns" [matColumnDef]="column.columnDef">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ column.header  }} </th>
+          <td mat-cell *matCellDef="let element"> {{ element[column.columnDef] }} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 
         <!-- Row shown when there is no matching data. -->
         <tr class="mat-row row-no-data" *matNoDataRow>
@@ -28,7 +28,7 @@
         </tr>
 
       </table>
-      <mat-paginator fixed [pageSizeOptions]="[5, 10, 20]" [pageSize]="pageSize" showFirstLastButtons (page)="pageChange($event)"
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="pageSize" showFirstLastButtons (page)="pageChange($event)"
         aria-label="Select page of periodic elements">
       </mat-paginator>
     </div>
