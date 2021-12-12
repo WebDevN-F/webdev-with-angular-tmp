@@ -136,7 +136,7 @@ export class ToolsDcmSearchComponent implements OnInit {
           placeholder: 'Trạng thái hồ sơ',
           options: [
             { label: 'Chờ xử lý', value: '0' },
-            { label: 'Đang xử lý', value: '1' },
+            { label: 'Lưu kho ĐVKD', value: '1' },
             { label: 'Đã xử lý', value: '2' },
             { label: 'Đã hủy', value: '3' },
           ],

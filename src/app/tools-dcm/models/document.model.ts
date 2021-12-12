@@ -10,4 +10,5 @@ export interface DocumentInfo {
   crown?: number;
   sealCrown?: number;
   status?: number;
+  [key: string]: any;
 }

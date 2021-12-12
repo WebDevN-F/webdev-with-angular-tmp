@@ -89,6 +89,11 @@ table {
 // .mat-column-created {
 //   max-width: 124px;
 // }
+
+.mat-column-position {
+  max-width: 35px;
+}
+
 ::ng-deep .mat-paginator-container {
   .mat-paginator-range-actions {
     margin-left: auto;

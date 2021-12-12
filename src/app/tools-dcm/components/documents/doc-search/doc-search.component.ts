@@ -35,6 +35,10 @@ export class DocSearchComponent implements OnInit, OnDestroy {
         takeUntil(this.componentDestroyed$)
       )
       .subscribe(data => {
+        data = data.map((item, index) => {
+          item['position'] = index+1;
+          return item;
+        })
         this.documents = data;
         setTimeout(() => {
           this.isLoadingResults = false
@@ -44,6 +48,9 @@ export class DocSearchComponent implements OnInit, OnDestroy {
 
   onReset() {
     this.documents = [];
+    setTimeout(() => {
+      this.isLoadingResults = false
+    }, 2000);
   }
 
   ngOnDestroy() {

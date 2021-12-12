@@ -17,23 +17,24 @@ export class DocSearchListComponent implements OnChanges {
   @Input() backendSort!: boolean;
   @Output() onSortChange: EventEmitter<Sort> = new EventEmitter<Sort>();
   @Output() onPageChange: EventEmitter<any> = new EventEmitter<any>();
+  @Output() onClickRow: EventEmitter<any> = new EventEmitter<any>();
 
-  columns: { columnDef: string; header: string;[key: string]: any; }[] = [
+  columns: { columnDef: string; header: string; [key: string]: any; }[] = [
     // 'id', 'losId', 'cif', 'fullName', 'timeStore', 'sealCode', 'stack', 'track', 'crown', 'sealCrown', 'status'
-    { columnDef: 'losId', header: 'Số LOS' },
-    { columnDef: 'cif', header: 'Số CIF' },
-    { columnDef: 'fullName', header: 'Họ tên khách hàng' },
-    { columnDef: 'timeStore', header: 'Thời gian lưu trữ' },
-    { columnDef: 'sealCode', header: 'Mã Seal' },
-    { columnDef: 'stack', header: 'Tủ/kệ' },
-    { columnDef: 'track', header: 'Ngăn/giá' },
-    { columnDef: 'crown', header: 'Mã thùng' },
-    { columnDef: 'sealCrown', header: 'Mã seal thùng' },
-    { columnDef: 'status', header: 'Trạng thái hồ sơ' },
+    { columnDef: 'position', header: 'No', cell: (element: any, column: string) => `${element[column] ? element[column] : ``}` },
+    { columnDef: 'losId', header: 'Số LOS', cell: (element: any, column: string) => `${element[column] ? element[column] : ``}` },
+    { columnDef: 'cif', header: 'Số CIF', cell: (element: any, column: string) => `${element[column] ? element[column] : ``}` },
+    { columnDef: 'fullName', header: 'Họ tên khách hàng', cell: (element: any, column: string) => `${element[column] ? element[column] : ``}` },
+    { columnDef: 'timeStore', header: 'Thời gian lưu trữ', width: '125px', cell: (element: any, column: string) => `${element[column] ? element[column]+' Tháng' : ``}` },
+    { columnDef: 'sealCode', header: 'Mã Seal', cell: (element: any, column: string) => `${element[column] ? element[column] : ``}` },
+    { columnDef: 'stack', header: 'Tủ/kệ', cell: (element: any, column: string) => `${element[column] ? element[column] : ``}` },
+    { columnDef: 'track', header: 'Ngăn/giá', cell: (element: any, column: string) => `${element[column] ? element[column] : ``}` },
+    { columnDef: 'crown', header: 'Mã thùng', cell: (element: any, column: string) => `${element[column] ? element[column] : ``}` },
+    { columnDef: 'sealCrown', header: 'Mã seal thùng', cell: (element: any, column: string) => `${element[column] ? element[column] : ``}` },
+    { columnDef: 'status', header: 'Trạng thái hồ sơ', cell: (element: any, column: string) => this.selectStatus(element[column]) },
   ];
 
   displayedColumns: string[] = this.columns.map(c => c.columnDef);
-
 
   dataSource = new MatTableDataSource<DocumentInfo>(this.data);
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -69,5 +70,27 @@ export class DocSearchListComponent implements OnChanges {
     this.pageIndex = event.pageIndex;
     this.pageSize = event.pageSize;
     this.onPageChange.emit(event);
+  }
+
+  clickedRows(row: any) {
+    this.onClickRow.emit(row);
+  }
+
+  private selectStatus(status: number) {
+    if (!status) {
+      return '';
+    }
+    switch (status) {
+      case 0:
+        return 'Chưa xử lý';
+      case 1:
+        return 'Lưu kho ĐVKD';
+      case 2:
+        return 'Đã xử lý';
+      case 3:
+        return 'Đã hủy';
+      default:
+        return 'unknown';
+    }
   }
 }
