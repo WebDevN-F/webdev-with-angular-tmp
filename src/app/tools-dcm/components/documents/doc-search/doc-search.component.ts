@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { IAppDialogService } from '@webdev/ui/shared';
 import { of as observableOf, startWith, Subject, switchMap, takeUntil } from 'rxjs';
 import { Observable } from 'rxjs/internal/Observable';
 import { DataService } from '../../../services/data.service';
@@ -33,9 +34,13 @@ export class DocSearchComponent implements OnInit, OnDestroy {
     { columnDef: 'status', header: 'Trạng thái hồ sơ', cell: (element: any, column: string) => this.selectStatus(element[column]) },
   ]
 
-  constructor(private dataService: DataService) { }
+  constructor(
+    private dataService: DataService,
+    private appdialogService: IAppDialogService
+  ) { }
 
   ngOnInit(): void {
+
   }
 
   ondcmSearch(event: any) {
@@ -75,6 +80,7 @@ export class DocSearchComponent implements OnInit, OnDestroy {
 
   onClickRowSearch(event: any) {
     console.log(event)
+
   }
 
   private selectStatus(status: number) {
