@@ -31,6 +31,7 @@
     "@ngrx/store-devtools": "^13.0.1",
     "@ngx-formly/core": "^6.0.0-next",
     "@ngx-formly/material": "^6.0.0-next",
+    "ng-qrcode": "^6.0.0",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
     "unique-names-generator": "^4.6.0",

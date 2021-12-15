@@ -21,6 +21,7 @@ import { faFileAlt as fasFileAlt } from '@fortawesome/free-solid-svg-icons';
 import { faUserCog as fasUserCog } from '@fortawesome/free-solid-svg-icons';
 import { faUsersCog as fasUsersCog } from '@fortawesome/free-solid-svg-icons';
 import { faPlus as fasPlus } from '@fortawesome/free-solid-svg-icons';
+import { faRedo as fasRedo } from '@fortawesome/free-solid-svg-icons';
 
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -36,7 +37,7 @@ import { ToolsDcmRoutingModule } from './tools-dcm-routing.module';
 import { ToolsDcmComponent } from './tools-dcm.component';
 
 const icons = [
-  fasStar, fasClock, fasChevronRight, fasBookMedical, fasSearch, fasArchive, fasExchangeAlt, fasSignOutAlt, fasSignInAlt, fasHdd, fasTrashAlt, fasFaFile, fasFileAlt, fasUsersCog, fasUserCog, fasPlus
+  fasStar, fasClock, fasChevronRight, fasBookMedical, fasSearch, fasArchive, fasExchangeAlt, fasSignOutAlt, fasSignInAlt, fasHdd, fasTrashAlt, fasFaFile, fasFileAlt, fasUsersCog, fasUserCog, fasPlus, fasRedo
 ];
 
 @NgModule({

@@ -1,8 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { IAppDialogService } from '@webdev/ui/shared';
+import { Router } from '@angular/router';
 import { of as observableOf, startWith, Subject, switchMap, takeUntil } from 'rxjs';
-import { Observable } from 'rxjs/internal/Observable';
+import { DocumentInfo } from 'src/app/tools-dcm/models/document.model';
 import { DataService } from '../../../services/data.service';
+
+const webdevDocument = 'WebDev.documents'
 
 @Component({
   selector: 'app-doc-search',
@@ -36,11 +38,17 @@ export class DocSearchComponent implements OnInit, OnDestroy {
 
   constructor(
     private dataService: DataService,
-    private appdialogService: IAppDialogService
+    private router: Router
   ) { }
 
   ngOnInit(): void {
-
+    setTimeout(() => {
+      const data = localStorage.getItem(webdevDocument);
+      if (data) {
+        this.documents = JSON.parse(data);
+        this.isLoadingResults = false
+      }
+    }, 100);
   }
 
   ondcmSearch(event: any) {
@@ -60,6 +68,7 @@ export class DocSearchComponent implements OnInit, OnDestroy {
           return item;
         })
         this.documents = data;
+        localStorage.setItem(webdevDocument, JSON.stringify(data));
         setTimeout(() => {
           this.isLoadingResults = false
         }, 2000);
@@ -80,7 +89,23 @@ export class DocSearchComponent implements OnInit, OnDestroy {
 
   onClickRowSearch(event: any) {
     console.log(event)
-
+    if (!event) { return; }
+    const document: DocumentInfo = event as DocumentInfo;
+    document['branchName'] = 'VIB Hà Nội';
+    document['groupName'] = 'Lending Document';
+    document['userManager'] = 'Nguyễn Văn A';
+    document['categoryName'] = 'Hồ sơ vay vốn, cập bảo lãnh';
+    document['statusName'] = this.selectStatus(document.status as number),
+    document.documentHistories = [
+      { documentId: document.id, status: 1, statusName: this.selectStatus(1), updatedDate: new Date(2021, 12, 1), updatedBy: 'Nguyễn Thị Bích Liên' },
+      { documentId: document.id, status: 1, statusName: this.selectStatus(1), updatedDate: new Date(2021, 12, 2), updatedBy: 'Nguyễn Thị Bích Liên' },
+      { documentId: document.id, status: 2, statusName: this.selectStatus(2), updatedDate: new Date(2021, 12, 3), updatedBy: 'Nguyễn Thị Bích Liên' },
+      { documentId: document.id, status: 3, statusName: this.selectStatus(3), updatedDate: new Date(2021, 12, 4), updatedBy: 'Nguyễn Thị Bích Liên' },
+    ];
+    localStorage.setItem(document.id, JSON.stringify(document));
+    setTimeout(() => {
+      this.router.navigate([`/tools-dcm/document/doc-detail/${document.id}`]);
+    }, 100);
   }
 
   private selectStatus(status: number) {
@@ -93,9 +118,9 @@ export class DocSearchComponent implements OnInit, OnDestroy {
       case 1:
         return 'Lưu kho ĐVKD';
       case 2:
-        return 'Đã xử lý';
+        return 'Cho mượn toàn phần';
       case 3:
-        return 'Đã hủy';
+        return 'Mất thất lạc';
       default:
         return 'unknown';
     }

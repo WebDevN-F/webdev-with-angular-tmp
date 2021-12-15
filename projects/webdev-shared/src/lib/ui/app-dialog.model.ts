@@ -1,5 +1,6 @@
 export interface DataDialogModel<TModel> {
   title?: string;
+  width?: string;
   isConfirm?: boolean;
   buttonYes?: {
     text: string;

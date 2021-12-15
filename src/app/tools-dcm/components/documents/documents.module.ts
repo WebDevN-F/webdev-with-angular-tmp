@@ -31,9 +31,14 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { NgSelectFormlyComponent } from './ng-select.type';
 import { MatSelectModule } from '@angular/material/select';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { QrCodeModule } from 'ng-qrcode';
 
 import { HttpClientModule } from '@angular/common/http';
 import { WebdevDialogModule } from '@webdev/ui/shared';
+import { DocDetailComponent } from './doc-detail/doc-detail.component';
+import { DocQrcodeComponent } from './doc-qrcode/doc-qrcode.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +52,9 @@ import { WebdevDialogModule } from '@webdev/ui/shared';
     DocRevokingComponent,
     ToolsDcmSearchComponent,
     DocSearchListComponent,
-    NgSelectFormlyComponent
+    NgSelectFormlyComponent,
+    DocDetailComponent,
+    DocQrcodeComponent
   ],
   imports: [
     CommonModule,
@@ -76,7 +83,10 @@ import { WebdevDialogModule } from '@webdev/ui/shared';
     ReactiveFormsModule,
     FormlyMaterialModule,
     FormlyMatDatepickerModule,
-    WebdevDialogModule
+    WebdevDialogModule,
+    MatCardModule,
+    MatDividerModule,
+    QrCodeModule
   ],
   providers: [
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}

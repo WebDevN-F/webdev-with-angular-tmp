@@ -34,7 +34,7 @@ export class AppDialogService {
     data: DataDialogModel<TData>
   ): MatDialogRef<AppDialogComponent, any> {
     return this.dialogService.open(AppDialogComponent, {
-      width: this.innerWidth > 500 ? '500px' : '100%',
+      width: data.width || this.innerWidth + 'px',
       panelClass: ['mat-dialog-container'],
       disableClose: true,
       data: data

@@ -11,4 +11,13 @@ export interface DocumentInfo {
   sealCrown?: number;
   status?: number;
   [key: string]: any;
+  documentHistories?: DocumentHistory[];
+}
+
+export interface DocumentHistory {
+  documentId: string;
+  updatedDate?: Date;
+  status?: number;
+  user?: string;
+  [key: string]: any;
 }

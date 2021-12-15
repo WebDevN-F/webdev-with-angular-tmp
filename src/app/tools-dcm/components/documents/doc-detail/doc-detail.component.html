@@ -1,0 +1,33 @@
+<mat-card>
+  <mat-card-content>
+    <mat-card-title align="end" fxLayoutGap="5px">
+      <button type="button" mat-flat-button (click)="onLeaveout()">
+        <span>&nbsp;Thoát</span>
+      </button>
+      <button type="submit" mat-flat-button color="yellow" (click)="onQrCode()">
+        <span>&nbsp;In QR Code</span>
+      </button>
+    </mat-card-title>
+    <h3>{{ title }}</h3>
+
+    <form [formGroup]="form">
+      <formly-form [form]="form" [fields]="fields" [model]="model" fxLayout="column"></formly-form>
+    </form>
+
+    <div style="width: 80%;">
+      <mat-divider inset></mat-divider>
+      <app-doc-search-list [title]="'Lịch sử thay đổi trạng thái hồ sơ'"
+        [data]="document && document['documentHistories']" [isLoadingResults]="isLoadingResults"
+        [columns]="columnsToDisplay"></app-doc-search-list>
+    </div>
+  </mat-card-content>
+  <mat-divider inset></mat-divider>
+  <mat-card-actions align="end" fxLayoutGap="5px">
+    <button type="button" mat-flat-button (click)="onLeaveout()">
+      <span>&nbsp;Thoát</span>
+    </button>
+    <button type="submit" mat-flat-button color="yellow" (click)="onQrCode()">
+      <span>&nbsp;In QR Code</span>
+    </button>
+  </mat-card-actions>
+</mat-card>
