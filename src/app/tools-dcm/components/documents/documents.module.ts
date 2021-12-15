@@ -39,6 +39,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { WebdevDialogModule } from '@webdev/ui/shared';
 import { DocDetailComponent } from './doc-detail/doc-detail.component';
 import { DocQrcodeComponent } from './doc-qrcode/doc-qrcode.component';
+import { NgLabelTitleFormlyComponent } from './ng-label-title.type';
 
 @NgModule({
   declarations: [
@@ -77,6 +78,10 @@ import { DocQrcodeComponent } from './doc-qrcode/doc-qrcode.component';
         {
           name: 'my-autocomplete',
           component: NgSelectFormlyComponent,
+        },
+        {
+          name: 'my-label',
+          component: NgLabelTitleFormlyComponent
         }
       ],
     }),

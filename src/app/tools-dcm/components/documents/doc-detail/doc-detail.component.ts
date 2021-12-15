@@ -26,9 +26,9 @@ export class DocDetailComponent implements OnInit {
 
   columnsToDisplay = [
     // 'id', 'losId', 'cif', 'fullName', 'timeStore', 'sealCode', 'stack', 'track', 'crown', 'sealCrown', 'status'
-    { columnDef: 'updatedDate', header: 'Ngày thay đổi', cell: (element: any, column: string) => `${element[column] ? new Date(element[column]).toDateString() : ``}` },
-    { columnDef: 'statusName', header: 'Trạng thái', cell: (element: any, column: string) => `${element[column] ? element[column] : ``}` },
-    { columnDef: 'updatedBy', header: 'Người đề nghị', cell: (element: any, column: string) => `${element[column] ? element[column] : ``}` },
+    { columnDef: 'updatedDate', header: 'Ngày thay đổi', cell: (row: any, column: string) => `${row[column] ? new Date(row[column]).toDateString() : ``}` },
+    { columnDef: 'statusName', header: 'Trạng thái', cell: (row: any, column: string) => `${row[column] ? row[column] : ``}` },
+    { columnDef: 'updatedBy', header: 'Người đề nghị', cell: (row: any, column: string) => `${row[column] ? row[column] : ``}` },
   ]
 
   fields: FormlyFieldConfig[] = [
