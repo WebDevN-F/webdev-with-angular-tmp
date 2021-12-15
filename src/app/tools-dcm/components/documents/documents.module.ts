@@ -40,6 +40,7 @@ import { WebdevDialogModule } from '@webdev/ui/shared';
 import { DocDetailComponent } from './doc-detail/doc-detail.component';
 import { DocQrcodeComponent } from './doc-qrcode/doc-qrcode.component';
 import { NgLabelTitleFormlyComponent } from './ng-label-title.type';
+import { RepeatTypeComponent } from './repeat-section.type';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,9 @@ import { NgLabelTitleFormlyComponent } from './ng-label-title.type';
     DocSearchListComponent,
     NgSelectFormlyComponent,
     DocDetailComponent,
-    DocQrcodeComponent
+    DocQrcodeComponent,
+    NgLabelTitleFormlyComponent,
+    RepeatTypeComponent
   ],
   imports: [
     CommonModule,
@@ -82,6 +85,10 @@ import { NgLabelTitleFormlyComponent } from './ng-label-title.type';
         {
           name: 'my-label',
           component: NgLabelTitleFormlyComponent
+        },
+        {
+          name: 'repeat',
+          component: RepeatTypeComponent
         }
       ],
     }),

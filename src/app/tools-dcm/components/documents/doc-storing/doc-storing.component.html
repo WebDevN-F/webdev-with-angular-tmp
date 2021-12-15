@@ -1,1 +1,11 @@
-<p>doc-storing works!</p>
+<form [formGroup]="form" (ngSubmit)="onSubmit(form)">
+  <formly-form [form]="form" [fields]="fields" [model]="model" fxLayout="column"></formly-form>
+  <div class="button-row" fxLayout="row" fxLayoutAlign="end" fxLayoutGap="5px">
+    <button type="button" mat-flat-button>
+      <span>&nbsp;Hủy</span>
+    </button>
+    <button type="submit" mat-flat-button color="yellow">
+      <span>&nbsp;Lưu kho</span>
+    </button>
+  </div>
+</form>
