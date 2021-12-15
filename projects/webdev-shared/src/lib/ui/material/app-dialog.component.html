@@ -1,0 +1,20 @@
+<h2 mat-dialog-title>
+  <span class="mat-dialog-title-1"> {{ title }}</span>
+  <button mat-mini-fab [mat-dialog-close]="false">
+    <mat-icon>close</mat-icon>
+  </button>
+</h2>
+
+<mat-dialog-content class="mat-typography">
+  <ng-template #target></ng-template>
+  <span *ngIf="messageConfirm">{{ messageConfirm }}</span>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onNoClick()" *ngIf="isConfirm || buttonNoVisible">
+    {{ buttonNoText }}
+  </button>
+  <button mat-stroked-button [mat-dialog-close]="true" cdkFocusInitial *ngIf="buttonYesVisible">
+    {{ buttonYesText }}
+  </button>
+</mat-dialog-actions>

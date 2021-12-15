@@ -3,7 +3,6 @@ import { FormGroup, Validators } from '@angular/forms';
 import { faSearch, faRedo } from '@fortawesome/free-solid-svg-icons';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 import { map } from 'rxjs/internal/operators/map';
-import { switchMap } from 'rxjs/internal/operators/switchMap';
 import { DataService } from '../../services/data.service';
 
 const formlyRow = (fieldConfig: FormlyFieldConfig[]) => {

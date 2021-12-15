@@ -1,0 +1,46 @@
+::ng-deep .mat-dialog-container {
+  border-radius: 0.25em !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  width: auto;
+  height: auto;
+  font-size: 14px;
+  min-width: 200px;
+  .mat-dialog-title {
+    background: #FDB913;
+    font-size: 14px;
+    color: #fff;
+    padding: 5px 10px;
+    margin-bottom: 0;
+    display: flex;
+    > * {
+      flex: 1 auto;
+    }
+    .mat-dialog-title-1 {
+      padding-right: 15px;
+    }
+    button {
+      max-width: 25px;
+      max-height: 25px;
+      background-color: #333;
+      border: 1px solid #fff;
+      span {
+        padding: 0;
+        color: #fff;
+        .mat-icon {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+  .mat-dialog-content {
+    padding: 1em;
+    margin: 0;
+  }
+
+  .mat-dialog-actions {
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-bottom: 0;
+  }
+}

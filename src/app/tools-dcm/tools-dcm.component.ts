@@ -7,7 +7,6 @@ import { Router } from '@angular/router';
 import { TitleService } from './services/title.service';
 import { Location } from '@angular/common';
 import { BreakpointObserver } from '@angular/cdk/layout';
-
 @Component({
   selector: 'app-tools-dcm',
   templateUrl: './tools-dcm.component.html',
@@ -62,7 +61,15 @@ export class ToolsDcmComponent implements OnInit {
     this.menuItems = JSON.parse(JSON.stringify(e.curentValue.childs));
   }
 
-  private redirectTo() {
+  onSearchPlus() {
+    this.redirectTo('/tools-dcm/document/doc-search');
+  }
+
+  private redirectTo(url?: string) {
+    if (url) {
+      this.router.navigate([url]);
+      return;
+    }
     if (this.prevMenu['url']) {
       this.router.navigate([this.prevMenu.url]);
     }

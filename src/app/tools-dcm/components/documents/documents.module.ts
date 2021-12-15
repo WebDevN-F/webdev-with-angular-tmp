@@ -33,6 +33,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { HttpClientModule } from '@angular/common/http';
+import { WebdevDialogModule } from '@webdev/ui/shared';
 
 @NgModule({
   declarations: [
@@ -75,6 +76,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     FormlyMaterialModule,
     FormlyMatDatepickerModule,
+    WebdevDialogModule
   ],
   providers: [
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}
