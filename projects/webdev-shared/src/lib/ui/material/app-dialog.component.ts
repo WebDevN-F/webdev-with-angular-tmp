@@ -20,7 +20,7 @@ export class AppDialogComponent implements OnInit, OnDestroy {
   title: string = '';
   isConfirm = false;
   buttonYesText = 'Ok';
-  buttonYesVisible = true;
+  buttonYesVisible = false;
   buttonNoText = 'Cancel';
   buttonNoVisible = false;
   messageConfirm!: string;
