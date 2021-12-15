@@ -1,1 +1,5 @@
-<p>doc-loan-paymenting works!</p>
+<form [formGroup]="form">
+  <formly-form [form]="form" [fields]="fields" [model]="model" fxLayout="column"></formly-form>
+</form>
+
+<app-doc-search-list [title]="'Thông tin hồ sơ'" [data]="documents" [isLoadingResults]="isLoadingResults" [columns]="columnsToDisplay"></app-doc-search-list>
