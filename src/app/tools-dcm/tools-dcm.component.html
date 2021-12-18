@@ -1,15 +1,18 @@
 <mat-sidenav-container class="wrapper-container" autosize>
-  <mat-sidenav #sidenav mode="side" [(opened)]="opened">
+  <mat-sidenav #sidenav mode="side" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
     <mat-toolbar class="nav-header app-toolbar" role="heading" color="sidenav">
     </mat-toolbar>
 
     <div class="sidenav-back">
-      <button mat-icon-button class="example-icon" aria-label="icon-button with menu icon" (click)="onBack()" [disabled]="!prevMenu">
+      <button mat-icon-button class="example-icon" aria-label="icon-button with menu icon" (click)="onBack()"
+        [disabled]="!prevMenu">
         <fa-icon [icon]="faArrowLeft"></fa-icon>
       </button>
     </div>
 
-    <app-sidebar-menu [menuItems]="menuItems" (menuClick)="onMenuClick($event)" [currentMenu]="urlChange"></app-sidebar-menu>
+    <app-sidebar-menu [menuItems]="menuItems" (menuClick)="onMenuClick($event)" [currentMenu]="urlChange">
+    </app-sidebar-menu>
 
     <p class="nav-footer">&copy; 2021 - ngnam</p>
 
@@ -18,28 +21,31 @@
   <mat-sidenav-content class="wrapper-content">
     <mat-toolbar class="app-header app-toolbar" role="heading" color="white">
       <button mat-icon-button class="example-icon" aria-label="icon-button with menu icon" (click)="sidenav.toggle()">
-        <mat-icon>menu</mat-icon>
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span># {{ pageTitle }} </span>
       <span class="margin-spacer"></span>
 
       <button mat-icon-button class="example-icon favorite-icon" aria-label="icon-button with heart icon"
-        matTooltip="nguyenvannam0411@gmail.com"
-        [matTooltipPosition]="'below'">
-        <a href="mailto:nguyenvannam0411@gmail.com"><fa-icon [icon]="faEnvelope"></fa-icon></a>
+        matTooltip="nguyenvannam0411@gmail.com" [matTooltipPosition]="'below'">
+        <a href="mailto:nguyenvannam0411@gmail.com">
+          <fa-icon [icon]="faEnvelope"></fa-icon>
+        </a>
       </button>
       <button mat-icon-button class="example-icon favorite-icon" aria-label="icon-button with heart icon"
-        matTooltip="0928.351.036"
-        [matTooltipPosition]="'below'">
-        <a href="tel:0928351036"><fa-icon [icon]="faMobileAlt"></fa-icon></a>
+        matTooltip="0928.351.036" [matTooltipPosition]="'below'">
+        <a href="tel:0928351036">
+          <fa-icon [icon]="faMobileAlt"></fa-icon>
+        </a>
       </button>
 
-      <button mat-icon-button class="example-icon favorite-icon" aria-label="icon-button with heart icon" (click)="onSearchPlus()">
+      <button mat-icon-button class="example-icon favorite-icon" aria-label="icon-button with heart icon"
+        (click)="onSearchPlus()">
         <fa-icon [icon]="faSearch"></fa-icon>
       </button>
       <button mat-icon-button class="example-icon" aria-label="icon-button with share icon">
         <fa-icon [icon]="faUser"></fa-icon>
-     </button>
+      </button>
     </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>

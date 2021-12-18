@@ -6,15 +6,19 @@ import { searchTreeNodePrev } from './services/helper';
 import { Router } from '@angular/router';
 import { TitleService } from './services/title.service';
 import { Location } from '@angular/common';
-import { BreakpointObserver } from '@angular/cdk/layout';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { map, Observable, shareReplay } from 'rxjs';
 @Component({
   selector: 'app-tools-dcm',
   templateUrl: './tools-dcm.component.html',
   styleUrls: ['./tools-dcm.component.scss']
 })
 export class ToolsDcmComponent implements OnInit {
-  opened: boolean = !this.breakpointObserver.isMatched('(max-width: 599px)');
-
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+  .pipe(
+    map(result => result.matches),
+    shareReplay()
+  );
   faSearch = faSearch;
   faUser = faUser;
   faArrowLeft = faArrowLeft;

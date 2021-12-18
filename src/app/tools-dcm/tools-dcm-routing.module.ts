@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { NavContainerComponent } from '../core/nav-container/nav-container.component';
 import { BreadcrumbInitializedGuardGuard } from './services/breadcrumb-initialized-guard.guard';
 import { ToolsDcmComponent } from './tools-dcm.component';
 

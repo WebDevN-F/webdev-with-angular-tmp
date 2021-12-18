@@ -35,6 +35,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { SidebarMenuComponent } from './components/sidebar-menu/sidebar-menu.component';
 import { ToolsDcmRoutingModule } from './tools-dcm-routing.module';
 import { ToolsDcmComponent } from './tools-dcm.component';
+import { NavContainerComponent } from '../core/nav-container/nav-container.component';
 
 const icons = [
   fasStar, fasClock, fasChevronRight, fasBookMedical, fasSearch, fasArchive, fasExchangeAlt, fasSignOutAlt, fasSignInAlt, fasHdd, fasTrashAlt, fasFaFile, fasFileAlt, fasUsersCog, fasUserCog, fasPlus, fasRedo
@@ -44,6 +45,7 @@ const icons = [
   declarations: [
     ToolsDcmComponent,
     SidebarMenuComponent,
+    NavContainerComponent
   ],
   imports: [
     CommonModule,

@@ -45,7 +45,10 @@
                 "src/stylings",
                 "src/stylings/environment-scss"
               ]
-            }
+            },
+            "allowedCommonJsDependencies": [
+              "qrcode"
+            ]
           },
           "configurations": {
             "production": {
