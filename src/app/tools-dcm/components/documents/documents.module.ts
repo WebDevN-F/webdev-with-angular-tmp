@@ -41,6 +41,7 @@ import { DocDetailComponent } from './doc-detail/doc-detail.component';
 import { DocQrcodeComponent } from './doc-qrcode/doc-qrcode.component';
 import { NgLabelTitleFormlyComponent } from './ng-label-title.type';
 import { RepeatTypeComponent } from './repeat-section.type';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -98,7 +99,8 @@ import { RepeatTypeComponent } from './repeat-section.type';
     WebdevDialogModule,
     MatCardModule,
     MatDividerModule,
-    QrCodeModule
+    QrCodeModule,
+    MatIconModule
   ],
   providers: [
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}

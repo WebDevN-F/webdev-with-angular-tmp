@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { FormlyFieldConfig } from '@ngx-formly/core';
+import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { map } from 'rxjs/internal/operators/map';
 import { DataService } from '.././../../services/data.service';
 
@@ -18,7 +18,10 @@ const formlyRow = (fieldConfig: FormlyFieldConfig[]) => {
 })
 export class DocStoringComponent implements OnInit {
   form = new FormGroup({});
-  model = {};
+  model = {
+    cifItems: []
+  };
+  options: FormlyFormOptions = {};
 
   fields: FormlyFieldConfig[] = [
     formlyRow([
@@ -153,23 +156,19 @@ export class DocStoringComponent implements OnInit {
       }
     ]),
     {
-      key: 'cifaddmore',
+      key: 'cifItems',
       type: 'repeat',
       templateOptions: {
         addText: '(+) Thêm số CIF',
       },
       fieldArray: {
         fieldGroupClassName: 'display-flex',
-        fieldGroup: [
-          {
-            className: 'flex-1',
-            type: 'input',
-            key: 'cifnew',
-            templateOptions: {
-              label: 'Số cif: ',
-            },
-          },
-        ],
+        className: 'flex-1',
+        type: 'input',
+        key: 'cif',
+        expressionProperties: {
+          'templateOptions.label': '"Số cif " + (parseInt(field.key)+1)'
+        }
       },
     },
 
