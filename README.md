@@ -9,7 +9,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 3. [Buiding a CardXModule  for Shared components](https://jasonwhite.xyz/posts/2020/04/26/creating-an-angular-component-library-card-component/).
 4. Theme Admin using Angular Material Component & Dynamic ngFormly
 
-## More
+## Learn More
 
 [webdevn-f.github.io/webdev-with-angular-tmp/](https://webdevn-f.github.io/webdev-with-angular-tmp/)
 
@@ -22,7 +22,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 2. [Angular - pass env setting to sass variables](https://stackoverflow.com/questions/42515893/can-angular-cli-pass-environment-specific-settings-to-sass-variables)
 
-# Donate
+3. [How practices building form with formly](https://egghead.io/lessons/angular-add-functionality-to-angular-formly-controls-with-formly-lifecycle-hooks)
+
+# Donate me
 If you find this project useful — or just feeling generous, consider buying me a beer or a coffee. Cheers! :beers: :coffee:
 |               |               |
 | ------------- |:-------------:|
