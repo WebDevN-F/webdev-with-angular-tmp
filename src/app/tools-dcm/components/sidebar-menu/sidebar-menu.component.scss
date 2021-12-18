@@ -28,6 +28,13 @@
       }
       .icon-before {
         width: 25px;
+        padding-right: 11px;
+      }
+      ::ng-deep .mat-list-item-content {
+        .mat-list-text {
+          flex: 1 auto !important;
+          order: 1 !important;
+        }
       }
     }
     .mat-divider {

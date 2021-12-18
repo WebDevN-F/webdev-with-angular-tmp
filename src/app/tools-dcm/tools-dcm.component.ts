@@ -31,6 +31,8 @@ export class ToolsDcmComponent implements OnInit {
   pageTitle!: string;
   urlChange!: string;
 
+  isExpanded = true;
+
   constructor(
     private router: Router,
     private titleService: TitleService,

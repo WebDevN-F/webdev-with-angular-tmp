@@ -1,11 +1,12 @@
 <mat-sidenav-container class="wrapper-container" autosize>
   <mat-sidenav #sidenav mode="side" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
-    <mat-toolbar class="nav-header app-toolbar" role="heading" color="sidenav">
+    <mat-toolbar class="nav-header app-toolbar" role="heading" color="sidenav"
+    [ngClass]="{'nav-header-expanded': !isExpanded && ((isHandset$ | async) === false)}">
     </mat-toolbar>
 
     <div class="sidenav-back">
-      <button mat-icon-button class="example-icon" aria-label="icon-button with menu icon" (click)="onBack()"
+      <button mat-mini-fab color="warn" class="example-icon" aria-label="icon-button with menu icon" (click)="onBack()"
         [disabled]="!prevMenu">
         <fa-icon [icon]="faArrowLeft"></fa-icon>
       </button>
@@ -14,13 +15,13 @@
     <app-sidebar-menu [menuItems]="menuItems" (menuClick)="onMenuClick($event)" [currentMenu]="urlChange">
     </app-sidebar-menu>
 
-    <p class="nav-footer">&copy; 2021 - ngnam</p>
+    <p class="nav-footer" [hidden]="!isExpanded">&copy; 2021 - ngnam</p>
 
   </mat-sidenav>
 
-  <mat-sidenav-content class="wrapper-content">
+  <mat-sidenav-content class="wrapper-content" [ngClass]="{'nav-expanded': !isExpanded && ((isHandset$ | async) === false)}">
     <mat-toolbar class="app-header app-toolbar" role="heading" color="white">
-      <button mat-icon-button class="example-icon" aria-label="icon-button with menu icon" (click)="sidenav.toggle()">
+      <button mat-icon-button class="example-icon" aria-label="icon-button with menu icon" (click)="sidenav.toggle();isExpanded=!isExpanded;">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span># {{ pageTitle }} </span>

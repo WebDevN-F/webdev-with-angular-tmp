@@ -5,15 +5,15 @@
         <ng-container *ngIf="menuItem.isLink;else menuLevel0">
           <a @flyInOut mat-list-item [href]="menuItem.url" target="_blank">
             <fa-icon [icon]="menuItem.icon" class="icon-before"></fa-icon>
-            <span class="flex-11-auto pl-5px">{{ menuItem.title }}</span>
+            <span mat-line class="flex-11-auto pl-5px">{{ menuItem.title }}</span>
           </a>
         </ng-container>
         <ng-template #menuLevel0>
           <ng-container>
             <a @flyInOut mat-list-item href="javascript:void(0)" onclick="return false;" (click)="onClickMenu(menuItem)">
               <fa-icon [icon]="menuItem.icon" class="icon-before"></fa-icon>
-              <span class="flex-11-auto pl-5px">{{ menuItem.title }}</span>
-              <fa-icon *ngIf="(menuItem.childs && menuItem.childs.length > 0)" [icon]="['fas', 'chevron-right']">
+              <span mat-line class="flex-11-auto pl-5px">{{ menuItem.title }}</span>
+              <fa-icon *ngIf="(menuItem.childs && menuItem.childs.length > 0)" [icon]="['fas', 'chevron-right']" style="order: 3;">
               </fa-icon>
             </a>
           </ng-container>
@@ -24,7 +24,7 @@
         <ng-container *ngIf="menuItem.isLink; else menuLeveln">
           <a @flyInOut mat-list-item [href]="menuItem.url" target="_blank">
             <fa-icon [icon]="menuItem.icon" class="icon-before"></fa-icon>
-            <span class="flex-11-auto pl-5px">{{ menuItem.title }}</span>
+            <span mat-line class="flex-11-auto pl-5px">{{ menuItem.title }}</span>
           </a>
         </ng-container>
         <ng-template #menuLeveln>
@@ -32,7 +32,7 @@
             <a @flyInOut mat-list-item [routerLink]="menuItem.url" routerLinkActive="active"
               [routerLinkActiveOptions]="{exact: true}">
               <fa-icon [icon]="menuItem.icon" class="icon-before"></fa-icon>
-              <span class="flex-11-auto pl-5px">{{ menuItem.title }}</span>
+              <span mat-line class="flex-11-auto pl-5px">{{ menuItem.title }}</span>
               <!-- <fa-icon [icon]="['fas', 'chevron-right']"></fa-icon> -->
             </a>
           </ng-container>

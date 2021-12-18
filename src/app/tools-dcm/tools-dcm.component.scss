@@ -47,11 +47,20 @@ mat-sidenav {
     center bottom;
   background-size: contain;
   color: #fff;
+  &.nav-header-expanded {
+    width: 60px;
+    height: 60px;
+    background-size: contain;
+  }
 }
 
 .sidenav-back {
   background: #095187 linear-gradient(#095187, #0166b4);
   padding: 1em 0;
+
+  button {
+    margin-left: 5px;
+  }
 }
 
 .nav-footer {
@@ -74,4 +83,15 @@ mat-sidenav {
   .ng-value {
     padding: 5px;
   }
+}
+
+::ng-deep mat-sidenav:not(.mat-drawer-opened):not(.mat-drawer-over) {
+  transform: translate3d(0, 0, 0) !important;
+  visibility: visible !important;
+  width: 60px !important;
+  overflow: hidden;
+}
+
+.nav-expanded {
+  margin-left: 60px !important;
 }
