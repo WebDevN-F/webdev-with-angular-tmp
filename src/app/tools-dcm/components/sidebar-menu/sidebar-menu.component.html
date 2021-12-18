@@ -3,17 +3,20 @@
     <ng-container *ngFor="let menuItem of menuItems">
       <ng-container *ngIf="menuItem.level === 0 || (menuItem.childs && menuItem.childs.length > 0); else tmpChilren">
         <ng-container *ngIf="menuItem.isLink;else menuLevel0">
-          <a @flyInOut mat-list-item [href]="menuItem.url" target="_blank">
+          <a @flyInOut mat-list-item [href]="menuItem.url" target="_blank" [matTooltip]="menuItem.title"
+            matTooltipPosition="right">
             <fa-icon [icon]="menuItem.icon" class="icon-before"></fa-icon>
             <span mat-line class="flex-11-auto pl-5px">{{ menuItem.title }}</span>
           </a>
         </ng-container>
         <ng-template #menuLevel0>
           <ng-container>
-            <a @flyInOut mat-list-item href="javascript:void(0)" onclick="return false;" (click)="onClickMenu(menuItem)">
+            <a @flyInOut mat-list-item href="javascript:void(0)" onclick="return false;" (click)="onClickMenu(menuItem)"
+              [matTooltip]="menuItem.title" matTooltipPosition="right">
               <fa-icon [icon]="menuItem.icon" class="icon-before"></fa-icon>
               <span mat-line class="flex-11-auto pl-5px">{{ menuItem.title }}</span>
-              <fa-icon *ngIf="(menuItem.childs && menuItem.childs.length > 0)" [icon]="['fas', 'chevron-right']" style="order: 3;">
+              <fa-icon *ngIf="(menuItem.childs && menuItem.childs.length > 0)" [icon]="['fas', 'chevron-right']"
+                style="order: 3;">
               </fa-icon>
             </a>
           </ng-container>
@@ -22,7 +25,8 @@
 
       <ng-template #tmpChilren>
         <ng-container *ngIf="menuItem.isLink; else menuLeveln">
-          <a @flyInOut mat-list-item [href]="menuItem.url" target="_blank">
+          <a @flyInOut mat-list-item [href]="menuItem.url" target="_blank" [matTooltip]="menuItem.title"
+            matTooltipPosition="right">
             <fa-icon [icon]="menuItem.icon" class="icon-before"></fa-icon>
             <span mat-line class="flex-11-auto pl-5px">{{ menuItem.title }}</span>
           </a>
@@ -30,7 +34,7 @@
         <ng-template #menuLeveln>
           <ng-container>
             <a @flyInOut mat-list-item [routerLink]="menuItem.url" routerLinkActive="active"
-              [routerLinkActiveOptions]="{exact: true}">
+              [routerLinkActiveOptions]="{exact: true}" [matTooltip]="menuItem.title" matTooltipPosition="right">
               <fa-icon [icon]="menuItem.icon" class="icon-before"></fa-icon>
               <span mat-line class="flex-11-auto pl-5px">{{ menuItem.title }}</span>
               <!-- <fa-icon [icon]="['fas', 'chevron-right']"></fa-icon> -->
