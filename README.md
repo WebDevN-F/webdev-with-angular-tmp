@@ -9,9 +9,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 3. [Buiding a CardXModule  for Shared components](https://jasonwhite.xyz/posts/2020/04/26/creating-an-angular-component-library-card-component/).
 4. Theme Admin using Angular Material Component & Dynamic ngFormly
 
-## Learn More
+## UI on Figma
 
-[webdevn-f.github.io/webdev-with-angular-tmp/](https://webdevn-f.github.io/webdev-with-angular-tmp/)
+[Tool Figma](https://www.figma.com/proto/b69v1eTKndON1Xpevtrdqg/Tool-VIB?page-id=499%3A9122&node-id=499%3A9134&viewport=334%2C48%2C0.13&scaling=min-zoom&starting-point-node-id=499%3A9134&show-proto-sidebar=1)
+
+## UI on Web
+
+[Theme QLTS](https://webdevn-f.github.io/webdev-with-angular-tmp/tools-dcm)
 
 ## Sidebar menu with responsive mode over/side
 ![sidebar_menu_response.gif](/sidebar_menu_response.gif)
