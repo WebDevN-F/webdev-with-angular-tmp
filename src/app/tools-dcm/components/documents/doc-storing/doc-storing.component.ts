@@ -153,6 +153,7 @@ export class DocStoringComponent implements OnInit {
           placeholder: '',
         },
         className: 'flex-1',
+        hideExpression: 'model.cifItems && model.cifItems.length > 0',
       }
     ]),
     {
