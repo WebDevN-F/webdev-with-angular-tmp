@@ -184,6 +184,46 @@
           }
         }
       }
+    },
+    "webdev-layouts": {
+      "projectType": "library",
+      "root": "projects/webdev-layouts",
+      "sourceRoot": "projects/webdev-layouts/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/webdev-layouts/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/webdev-layouts/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/webdev-layouts/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/webdev-layouts/src/test.ts",
+            "tsConfig": "projects/webdev-layouts/tsconfig.spec.json",
+            "karmaConfig": "projects/webdev-layouts/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/webdev-layouts/**/*.ts",
+              "projects/webdev-layouts/**/*.html"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "webdev-with-angular-tmp"

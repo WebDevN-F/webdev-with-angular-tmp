@@ -23,7 +23,12 @@
       "dom"
     ],
     "paths": {
-      "@webdev/ui/shared": ["projects/webdev-shared/src/public-api"]
+      "@webdev/ui/shared": [
+        "projects/webdev-shared/src/public-api"
+      ],
+      "@webdev/ui/layouts": [
+        "projects/webdev-layouts/src/public-api"
+      ]
     }
   },
   "angularCompilerOptions": {
