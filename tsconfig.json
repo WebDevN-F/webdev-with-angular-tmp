@@ -28,6 +28,9 @@
       ],
       "@webdev/ui/layouts": [
         "projects/webdev-layouts/src/public-api"
+      ],
+      "@webdev/libs/third-party": [
+        "projects/webdev-third-party/src/public-api"
       ]
     }
   },

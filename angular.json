@@ -224,6 +224,46 @@
           }
         }
       }
+    },
+    "webdev-third-party": {
+      "projectType": "library",
+      "root": "projects/webdev-third-party",
+      "sourceRoot": "projects/webdev-third-party/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/webdev-third-party/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/webdev-third-party/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/webdev-third-party/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/webdev-third-party/src/test.ts",
+            "tsConfig": "projects/webdev-third-party/tsconfig.spec.json",
+            "karmaConfig": "projects/webdev-third-party/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/webdev-third-party/**/*.ts",
+              "projects/webdev-third-party/**/*.html"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "webdev-with-angular-tmp"
