@@ -28,6 +28,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 3. [How practices building form with formly](https://egghead.io/lessons/angular-add-functionality-to-angular-formly-controls-with-formly-lifecycle-hooks)
 
+4. Google Sheets API
+https://stackoverflow.com/questions/59036475/google-sheets-api-in-angular
+https://medium0.com/@bluesmike/how-i-implemented-angular8-googlesheets-crud-8883ac3cb6d8
+
 # Donate me
 If you find this project useful — or just feeling generous, consider buying me a beer or a coffee. Cheers! :beers: :coffee:
 |               |               |
